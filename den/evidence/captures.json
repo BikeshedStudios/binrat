@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "binrat.den.captures/1",
+  "product": "BINRAT: THE DEN",
+  "chainId": 4663,
+  "mode": "RECORDED_REPLAY",
+  "coverage": "PARTIAL",
+  "liveFeed": false,
+  "networkAtRuntime": false,
+  "generatedAt": "2026-10-30T20:08:25.094Z",
+  "canonicalization": "SHA-256 over JSON.stringify of {schemaVersion,chainId,sourceCheckpoint,checkpointBlockHash,historyCoverage,launches} with recursively sorted object keys and no whitespace; array order preserved. Identical to web/snapshot-contract.js in the owner worktree.",
+  "sourceWorktree": {
+    "path": "/home/swirky/binrat-frontend-rebirth-01",
+    "head": "30564864f5d406414f0c09c4d2ba2be5d1e79ab8",
+    "branch": "feat/binrat-frontend-rebirth-011",
+    "note": "Owner worktree read only; nothing outside den/ was written."
+  },
+  "captures": [
+    {
+      "id": "cap-01",
+      "checkpoint": "83541188",
+      "checkpointBlockHash": "0x128a30929f30750c8d62f3c5ac2a38bfe143e5f711973aa01b27a70b6231e513",
+      "feedDigest": "e12ed7dde88331d91ffd3143720087b652938a3f8e802e00ae009dd8026a29a4",
+      "historyCoverage": "PARTIAL",
+      "recordCount": 20,
+      "state": "STALE_VERIFIED",
+      "status": {
+        "state": null,
+        "verifiedAt": null,
+        "publicationVersion": null,
+        "lastSyncError": null
+      },
+      "readAt": "2026-10-08T19:00:55.000Z",
+      "readAtBasis": "http.response.date",
+      "source": {
+        "kind": "PUBLIC_GET",
+        "origin": "https://binrat-read-plane-stability-candidate.pettevik.workers.dev",
+        "path": "/api/launches/latest",
+        "selector": "body",
+        "file": "docs/receipts/pons-runtime-v1/1440x900-api-launches-latest.json",
+        "fileSha256": "dfb6d3ae21aac88472ba455e157629199fafeda81d715c0a31f384feb70b83be"
+      },
+      "packaged": {
+        "file": "83541188.json",
+        "sha256": "0cd9a9d15eae6584b090bcc41805240eba749a4bbe464a1cef260077e3de6f69",
+        "bytes": 12978
+      },
+      "digestVerified": true,
+      "note": "Read-plane status at capture was STALE_VERIFIED with lastSyncError SYNC_UNKNOWN_ERROR."
+    },
+    {
+      "id": "cap-02",
+      "checkpoint": "84243956",
+      "checkpointBlockHash": "0x1ac3dd679a088d07fec4226990f36beae057cfe0f080c9459a958d0c033c03e8",
+      "feedDigest": "69b3e304320cd5131fb77a69f6c0bfa2ebb1371ffc72890000daa6430036fbb1",
+      "historyCoverage": "PARTIAL",
+      "recordCount": 20,
+      "state": "FRESH_VERIFIED",
+      "status": {
+        "state": "FRESH_VERIFIED",
+        "verifiedAt": "2026-10-09T14:57:42.768Z",
+        "publicationVersion": 574,
+        "lastSyncError": null
+      },
+      "readAt": "2026-10-09T14:57:42.768Z",
+      "readAtBasis": "public-status.verifiedAtMs",
+      "source": {
+        "kind": "PUBLIC_GET",
+        "origin": "https://binrat.tech",
+        "path": "/api/launches/latest",
+        "selector": "$",
+        "file": "docs/receipts/sprint-a1/public-feed.json",
+        "fileSha256": "005b15d42fcd90b9c89778d4de0a08b9a2fc0992aebd3e8442b12a3d511d99c4"
+      },
+      "packaged": {
+        "file": "84243956.json",
+        "sha256": "1f5989d9c82626f9ae7a6ec792ae5a6fee08ac6715e5ddc3f3162ed5c200704a",
+        "bytes": 12978
+      },
+      "digestVerified": true,
+      "note": "Public feed captured alongside a FRESH_VERIFIED status for the same checkpoint."
+    },
+    {
+      "id": "cap-03",
+      "checkpoint": "84274428",
+      "checkpointBlockHash": "0x10cc15f25b3d24c78d39f64e3492c6ab0d4aacef07e619b7468e20bbd9d3d46d",
+      "feedDigest": "7d922050fab3da48fb8a0ee4067f616de91f6441497b506058d07eb294904fe9",
+      "historyCoverage": "PARTIAL",
+      "recordCount": 20,
+      "state": "FRESH_VERIFIED",
+      "status": {
+        "state": "FRESH_VERIFIED",
+        "verifiedAt": "2026-10-09T15:49:30.694Z",
+        "publicationVersion": 625,
+        "lastSyncError": null
+      },
+      "readAt": "2026-10-09T15:49:30.694Z",
+      "readAtBasis": "public-status.verifiedAtMs",
+      "source": {
+        "kind": "PUBLIC_GET",
+        "origin": "https://binrat.tech",
+        "path": "/api/launches/latest",
+        "selector": "$",
+        "file": "docs/receipts/sprint-a1-1/public-feed.json",
+        "fileSha256": "3382e3937feb55c63b80c8266a301d6e273331e1450b3bd1bdd51a3257f786c9"
+      },
+      "packaged": {
+        "file": "84274428.json",
+        "sha256": "3382e3937feb55c63b80c8266a301d6e273331e1450b3bd1bdd51a3257f786c9",
+        "bytes": 12977
+      },
+      "digestVerified": true,
+      "note": "Public feed captured alongside a FRESH_VERIFIED status for the same checkpoint."
+    },
+    {
+      "id": "cap-04",
+      "checkpoint": "84277514",
+      "checkpointBlockHash": "0x23249072576855af3b2cf95da86596895e529277a0ce27dbe4951c93f5fafae3",
+      "feedDigest": "5638ddae1e4446298591fcd43a1686dc9ca98bc7593b2e44f4be3dc35f284f2c",
+      "historyCoverage": "PARTIAL",
+      "recordCount": 20,
+      "state": "FRESH_VERIFIED",
+      "status": {
+        "state": "FRESH_VERIFIED",
+        "verifiedAt": "2026-10-09T15:54:44.144Z",
+        "publicationVersion": 631,
+        "lastSyncError": null
+      },
+      "readAt": "2026-10-09T15:55:44.919Z",
+      "readAtBasis": "live-summary.requests[0].checkedAt",
+      "source": {
+        "kind": "PUBLIC_GET",
+        "origin": "https://binrat.tech",
+        "path": "/api/launches/latest",
+        "selector": "requests[0].body",
+        "file": "docs/receipts/sprint-a1-1/live-summary.json",
+        "fileSha256": "f4ce04263ea69f9eed370659895ddc8c4bc8778a41b1b49735d8f98e6822ad51"
+      },
+      "packaged": {
+        "file": "84277514.json",
+        "sha256": "ce757613e2f8c3d8c42ec8e30754f1691afbd392746dc1f3316d4ff8df73193b",
+        "bytes": 12977
+      },
+      "digestVerified": true,
+      "note": "Second public read seconds after a fresh checkpoint; paired status kept FRESH_VERIFIED."
+    },
+    {
+      "id": "cap-05",
+      "checkpoint": "84278107",
+      "checkpointBlockHash": "0x99306eb75f7b1ee5b919951b4443c4bc08cbd0ca444fcd320d0c456d44f922b2",
+      "feedDigest": "2416b6f6bd9e2afab8bd3f2d4dc02edbeb050181d09ca0e3d7da8c49741d5876",
+      "historyCoverage": "PARTIAL",
+      "recordCount": 20,
+      "state": "FRESH_VERIFIED",
+      "status": {
+        "state": "FRESH_VERIFIED",
+        "verifiedAt": "2026-10-09T15:55:45.145Z",
+        "publicationVersion": 632,
+        "lastSyncError": null
+      },
+      "readAt": "2026-10-09T15:55:45.881Z",
+      "readAtBasis": "live-summary.requests[2].checkedAt",
+      "source": {
+        "kind": "PUBLIC_GET",
+        "origin": "https://binrat.tech",
+        "path": "/api/launches/latest",
+        "selector": "requests[2].body",
+        "file": "docs/receipts/sprint-a1-1/live-summary.json",
+        "fileSha256": "f4ce04263ea69f9eed370659895ddc8c4bc8778a41b1b49735d8f98e6822ad51"
+      },
+      "packaged": {
+        "file": "84278107.json",
+        "sha256": "beaf641b15db8437e955dd3182aa70e6268151cb519429e7a0474deb7b02088e",
+        "bytes": 12977
+      },
+      "digestVerified": true,
+      "note": "Latest public read in the replay set; used as the newest public checkpoint."
+    },
+    {
+      "id": "cap-06",
+      "checkpoint": "84298735",
+      "checkpointBlockHash": "0x9bf40ee12ac5aaa781ac3b6b012542612aed0870ca9acb4c4c6d00d1eb97d577",
+      "feedDigest": "4f139de3514adf3b73203ede9ff2ab34e7d0e8b99c0020b1f4e27decf5e3cf4c",
+      "historyCoverage": "PARTIAL",
+      "recordCount": 20,
+      "state": "NOT_RECORDED",
+      "status": null,
+      "readAt": "2026-10-09T16:32:43.477Z",
+      "readAtBasis": "production-records.checkedAt",
+      "source": {
+        "kind": "READ_ONLY_D1",
+        "origin": "production D1 canonical record (read-only capture)",
+        "path": "snapshotAfter.snapshot_json",
+        "selector": "snapshotAfter",
+        "file": "docs/receipts/sprint-a1-2-contract/production-records.json",
+        "fileSha256": "64c1a629c3a8fd1e876195fa612db85511491cfce01e9d9dc597e003772e3315"
+      },
+      "packaged": {
+        "file": "84298735.json",
+        "sha256": "c1e2e0ae240cd8937fe227876c73fce82c07d0f3b8359a99994dc477882735b8",
+        "bytes": 12980
+      },
+      "digestVerified": true,
+      "note": "Direct read-only production D1 capture, not a deployed public endpoint. State was not stored in the receipt."
+    }
+  ]
+}
