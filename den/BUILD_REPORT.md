@@ -152,7 +152,21 @@ evidence, system Chrome for tests, Node ≥ 24, provider-reported counts, bounde
   `den/**`; none of them deploy, and `ci.yml` does not reference secrets or deployment steps.
 - `den/` is not a member of the root pnpm workspace, so root installs and root CI are unaffected.
 - No deploy, DNS, Cloudflare, D1, queue, cron, Telegram, wallet, signing, spend or token action was
-  performed. One draft PR, marked `EXPERIMENT / NO MERGE / NO DEPLOY`.
+  performed. One draft PR, marked `EXPERIMENT / NO MERGE / NO DEPLOY`: **#216**.
+
+### Observed workflow behaviour after push (2026-10-30)
+
+| Event | Workflow | Result | Jobs executed |
+|---|---|---|---|
+| push `experiment/binrat-den-01` | `rat-radar-candidate-deploy.yml` | `failure` in 0 s ("workflow file issue") | **0** — no runner, no steps, no secrets |
+| pull_request #216 | `ci.yml` → `check` | **pass** (2m22s) | 1 (build/test only) |
+| pull_request #216 | `ci.yml` deploy/browser jobs (`rat-radar-candidate-deploy`, `rat-radar-public-smoke`, `pons-preflight-live-readonly`, `pons-case-runtime-proof`, frontdoor/frontend smoke) | **skipped** | 0 |
+
+The push produced a zero-job phantom run of the branch-scoped deploy workflow; the GitHub API reports
+`total_count: 0` jobs for it. Nothing was checked out, no environment was created, and
+`CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` were never resolved. On the PR itself every
+deployment job is explicitly skipped. No privileged deployment or secret-consuming job can run from
+this branch.
 
 ## LARGEST REMAINING BLOCKER
 
