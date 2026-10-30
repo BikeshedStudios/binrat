@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-30T16:18:21.493918+00:00",
+  "verdict": "ORIGINALS_PRESERVED",
+  "checks": [
+    {
+      "directory": "/home/swirky/binrat-frontend-rebirth-01",
+      "head": "30564864f5d406414f0c09c4d2ba2be5d1e79ab8",
+      "headUnchanged": true,
+      "status": [
+        " M web-v2/checks/check-frontdoor-package.mjs",
+        " M web-v2/frontdoor-candidate.html",
+        " M web-v2/package.json",
+        " M web-v2/src/FrontdoorCandidateApp.tsx",
+        " M web-v2/src/PonsCasePreview.tsx",
+        "?? DESIGN_SPEC.md",
+        "?? REBIRTH_011_REPORT.md",
+        "?? REBIRTH_01_REPORT.md",
+        "?? docs/receipts/rebirth-01/",
+        "?? docs/receipts/rebirth-011/",
+        "?? web-v2/checks/serve-rebirth-preview.mjs",
+        "?? web-v2/src/dumpster/",
+        "?? web/assets/dumpster/",
+        "?? web/assets/fonts/PRESSSTART2P-OFL.txt",
+        "?? web/assets/fonts/SILKSCREEN-OFL.txt",
+        "?? web/assets/fonts/pressstart2p-400.woff2",
+        "?? web/assets/fonts/silkscreen-700.woff2"
+      ],
+      "statusUnchanged": true,
+      "hashedFilesChecked": 73,
+      "changedHashedFiles": []
+    },
+    {
+      "directory": "/home/swirky/DevHub/repos/binrat",
+      "head": "2d507045327bd4269a5c0dd4f2050805488f60ee",
+      "headUnchanged": true,
+      "status": [
+        "?? docs/launch-self-service/",
+        "?? scripts/check-candidate-gate-c2.cjs",
+        "?? scripts/generate-stability-v1-release-config.mjs",
+        "?? scripts/verify-stability-candidate-config.mjs",
+        "?? tools/",
+        "?? wrangler.jsonc",
+        "?? wrangler.stability-v1-release.generated.jsonc"
+      ],
+      "statusUnchanged": true,
+      "hashedFilesChecked": 0,
+      "changedHashedFiles": []
+    }
+  ]
+}

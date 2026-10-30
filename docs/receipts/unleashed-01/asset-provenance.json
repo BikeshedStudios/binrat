@@ -1,0 +1,52 @@
+[
+  {
+    "path": "unleashed/public/assets/plex-condensed-bold.woff2",
+    "sha256": "b8e419feb977bcc68879eb26cc417500a00d876ab8230f9bf539c272fd4a50af",
+    "bytes": 17364
+  },
+  {
+    "path": "unleashed/public/assets/SILKSCREEN-OFL.txt",
+    "sha256": "86c5e9c9382cdcc5948704fdfe60f2aa164a719746931219a42736ecd9cefbd3",
+    "bytes": 4394
+  },
+  {
+    "path": "unleashed/public/assets/LICENSE.txt",
+    "sha256": "ed00326e4573277ab21aaf0580b014c95ee234b3e3144e8516e7ba76156f6507",
+    "bytes": 7370
+  },
+  {
+    "path": "unleashed/public/assets/alley-hero-mobile.webp",
+    "sha256": "53fb1b88b0ddc7da6a2851081a8a640c67ad99321d02762f1e5c969a58aabcff",
+    "bytes": 200280
+  },
+  {
+    "path": "unleashed/public/assets/rat-hero.webp",
+    "sha256": "0f25287966bcda44af208d1cdc56e45cdfd3aa8420052cbe1c716b9eee4f441e",
+    "bytes": 345960
+  },
+  {
+    "path": "unleashed/public/assets/silkscreen-700.woff2",
+    "sha256": "5741b7f01a127f40ed70281fa2f686e8fc2cfe241930a120e4d1a1cebe78f995",
+    "bytes": 7524
+  },
+  {
+    "path": "unleashed/public/assets/plex-mono-regular.woff2",
+    "sha256": "57a9ee7256afe6fba2a49e5a1ed14e577ee54954a8e51e50309b364394e38b8d",
+    "bytes": 13072
+  },
+  {
+    "path": "unleashed/public/assets/alley-hero.webp",
+    "sha256": "7dbfa796550694b2e5782103ebe0a2549bcdc80c172e0cda4138b17b260e3060",
+    "bytes": 314674
+  },
+  {
+    "path": "unleashed/public/assets/favicon.png",
+    "sha256": "cce2f404d991febe03e1d94f9736851c8e8055ed505815a80e7fe6ce486353f9",
+    "bytes": 9977
+  },
+  {
+    "path": "unleashed/public/assets/rat-hero-mobile.webp",
+    "sha256": "94a8a96cd136291500be17e1f1b0193eaf955f91eedf100a1ba83f83b37cf86f",
+    "bytes": 130960
+  }
+]

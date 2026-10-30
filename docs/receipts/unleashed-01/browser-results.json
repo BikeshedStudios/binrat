@@ -1,0 +1,709 @@
+{
+  "schema": "binrat.unleashed.browser/1",
+  "capturedAt": "2026-10-30T16:14:03.086Z",
+  "sourceHead": "30564864f5d406414f0c09c4d2ba2be5d1e79ab8",
+  "runner": "1.56.1",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "bodyWidth": 1440,
+      "brokenImages": 0,
+      "caseOverflow": false,
+      "memoryOverflow": false
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "scrollWidth": 1024,
+      "bodyWidth": 1024,
+      "brokenImages": 0,
+      "caseOverflow": false,
+      "memoryOverflow": false
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "bodyWidth": 768,
+      "brokenImages": 0,
+      "caseOverflow": false,
+      "memoryOverflow": false
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "scrollWidth": 430,
+      "bodyWidth": 430,
+      "brokenImages": 0,
+      "caseOverflow": false,
+      "memoryOverflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "brokenImages": 0,
+      "caseOverflow": false,
+      "memoryOverflow": false
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "scrollWidth": 360,
+      "bodyWidth": 360,
+      "brokenImages": 0,
+      "caseOverflow": false,
+      "memoryOverflow": false
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "scrollWidth": 320,
+      "bodyWidth": 320,
+      "brokenImages": 0,
+      "caseOverflow": false,
+      "memoryOverflow": false
+    }
+  ],
+  "journeys": [
+    {
+      "width": 1440,
+      "discoverCase": true,
+      "employ": true,
+      "replay": true,
+      "reopen": true,
+      "noteDraftRetained": true,
+      "cancelPersisted": true
+    },
+    {
+      "width": 1024,
+      "discoverCase": true,
+      "employ": true,
+      "replay": true,
+      "reopen": true,
+      "noteDraftRetained": true,
+      "cancelPersisted": true
+    },
+    {
+      "width": 768,
+      "discoverCase": true,
+      "employ": true,
+      "replay": true,
+      "reopen": true,
+      "noteDraftRetained": true,
+      "cancelPersisted": true
+    },
+    {
+      "width": 430,
+      "discoverCase": true,
+      "employ": true,
+      "replay": true,
+      "reopen": true,
+      "noteDraftRetained": true,
+      "cancelPersisted": true
+    },
+    {
+      "width": 390,
+      "discoverCase": true,
+      "employ": true,
+      "replay": true,
+      "reopen": true,
+      "noteDraftRetained": true,
+      "cancelPersisted": true
+    },
+    {
+      "width": 360,
+      "discoverCase": true,
+      "employ": true,
+      "replay": true,
+      "reopen": true,
+      "noteDraftRetained": true,
+      "cancelPersisted": true
+    },
+    {
+      "width": 320,
+      "discoverCase": true,
+      "employ": true,
+      "replay": true,
+      "reopen": true,
+      "noteDraftRetained": true,
+      "cancelPersisted": true
+    }
+  ],
+  "accessibility": [
+    {
+      "label": "home 1440",
+      "violations": []
+    },
+    {
+      "label": "case 1440",
+      "violations": []
+    },
+    {
+      "label": "memory 1440",
+      "violations": []
+    },
+    {
+      "label": "home 390",
+      "violations": []
+    },
+    {
+      "label": "case 390",
+      "violations": []
+    },
+    {
+      "label": "employ dialog 390",
+      "violations": []
+    },
+    {
+      "label": "memory 390",
+      "violations": []
+    },
+    {
+      "label": "empty den",
+      "violations": []
+    },
+    {
+      "label": "capacity",
+      "violations": []
+    },
+    {
+      "label": "source",
+      "violations": []
+    },
+    {
+      "label": "unavailable",
+      "violations": []
+    }
+  ],
+  "adverse": [
+    {
+      "keyboardAndReducedMotion": "PASS"
+    },
+    {
+      "source503": "UNAVAILABLE; zero substituted rows"
+    },
+    {
+      "den503": "Explicit unreadable state, not empty memory"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/383f2bc1-91f4-4a0d-99da-b49d998cdc32/replay"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/383f2bc1-91f4-4a0d-99da-b49d998cdc32/note"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/383f2bc1-91f4-4a0d-99da-b49d998cdc32/cancel"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/d5884ec5-89ef-4b22-ba8a-41d7bd013a3e/replay"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/d5884ec5-89ef-4b22-ba8a-41d7bd013a3e/note"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/d5884ec5-89ef-4b22-ba8a-41d7bd013a3e/cancel"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/0d034bbc-5d35-4856-9788-2fb9bf5078ea/replay"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/0d034bbc-5d35-4856-9788-2fb9bf5078ea/note"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/0d034bbc-5d35-4856-9788-2fb9bf5078ea/cancel"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/333c19d6-fbf5-41c0-9e0e-44c152527201/replay"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/333c19d6-fbf5-41c0-9e0e-44c152527201/note"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/333c19d6-fbf5-41c0-9e0e-44c152527201/cancel"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/92e2db37-190f-4c9b-b727-4145332be877/replay"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/92e2db37-190f-4c9b-b727-4145332be877/note"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/92e2db37-190f-4c9b-b727-4145332be877/cancel"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/69a2e94d-d095-4d53-befa-d77cad7d3acd/replay"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/69a2e94d-d095-4d53-befa-d77cad7d3acd/note"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/69a2e94d-d095-4d53-befa-d77cad7d3acd/cancel"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/e1f6fe42-dbee-4535-b088-8f84ef08b36e/replay"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/e1f6fe42-dbee-4535-b088-8f84ef08b36e/note"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/assignments/e1f6fe42-dbee-4535-b088-8f84ef08b36e/cancel"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "POST",
+      "path": "/api/interest"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence"
+    },
+    {
+      "method": "GET",
+      "path": "/api/den"
+    }
+  ],
+  "walkthrough": [
+    {
+      "step": 1,
+      "action": "Open recorded Case",
+      "caseId": "7a3be3d57a9d7db7c155945751a1e7d455a99ed6b249b6309065ff2c3eb0f568"
+    },
+    {
+      "step": 2,
+      "action": "Employ Moxie and save a question",
+      "assignmentId": "383f2bc1-91f4-4a0d-99da-b49d998cdc32"
+    },
+    {
+      "step": 3,
+      "action": "Run local replay",
+      "examined": 9,
+      "matches": 1
+    },
+    {
+      "step": 4,
+      "action": "Leave, reopen through My den, and reload",
+      "persisted": true
+    },
+    {
+      "step": 5,
+      "action": "Inspect/download receipt",
+      "receiptId": "replay:441518e3f858d5789ad8df9b99846a0b9346b7c30f2d1ad45e4799d10cbbd511"
+    }
+  ],
+  "chrome": "156.0.8078.47",
+  "verdict": "PASS",
+  "runtimeSourceHashes": {
+    "unleashed/server.mjs": "83a22ef30a96a9cf036d6d3772617051f927a723680d00d092dca713d328b47c",
+    "unleashed/store.mjs": "2b9dde5636ff0d64146b942782134897f6086363ff6296afbe85a620f6ef9bbd",
+    "unleashed/evidence.mjs": "86b98dcb707d3aff0970a7960b1325add5186225eeedc25fce901c64c5eed569",
+    "unleashed/public/app.js": "2b2523c4dc0fb4803f7cafb5071a6afa93d8b202a91057946f60bddd7711486e",
+    "unleashed/public/styles.css": "cea96618feea0745b94bf8d6b6330502d0a6ff8435a9a8627057525389fbc8d6",
+    "unleashed/public/index.html": "2814cc3a956ceee116dbe77f423c3732be4e919a144ef78afb73585b96b40f20"
+  },
+  "testedRuntimeCommit": "ea1af21ca90a3041f21acd847b87b80c88c34a68",
+  "testRunHadUncommittedChanges": true,
+  "runtimeBinding": "Every recorded runtime SHA-256 compared with the committed bytes at testedRuntimeCommit; no rerun or change to recorded test outcomes."
+}

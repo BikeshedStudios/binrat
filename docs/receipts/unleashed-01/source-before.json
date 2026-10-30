@@ -1,0 +1,408 @@
+[
+  {
+    "label": "approved-rebirth-011",
+    "directory": "/home/swirky/binrat-frontend-rebirth-01",
+    "head": "30564864f5d406414f0c09c4d2ba2be5d1e79ab8",
+    "status": [
+      " M web-v2/checks/check-frontdoor-package.mjs",
+      " M web-v2/frontdoor-candidate.html",
+      " M web-v2/package.json",
+      " M web-v2/src/FrontdoorCandidateApp.tsx",
+      " M web-v2/src/PonsCasePreview.tsx",
+      "?? DESIGN_SPEC.md",
+      "?? REBIRTH_011_REPORT.md",
+      "?? REBIRTH_01_REPORT.md",
+      "?? docs/receipts/rebirth-01/",
+      "?? docs/receipts/rebirth-011/",
+      "?? web-v2/checks/serve-rebirth-preview.mjs",
+      "?? web-v2/src/dumpster/",
+      "?? web/assets/dumpster/",
+      "?? web/assets/fonts/PRESSSTART2P-OFL.txt",
+      "?? web/assets/fonts/SILKSCREEN-OFL.txt",
+      "?? web/assets/fonts/pressstart2p-400.woff2",
+      "?? web/assets/fonts/silkscreen-700.woff2"
+    ],
+    "files": [
+      {
+        "path": "web-v2/checks/check-frontdoor-package.mjs",
+        "bytes": 3995,
+        "sha256": "3d8cbf9d980d2949f85bb32a68fcae77b01d9d1e70983e2808a9a9d3f273c5eb"
+      },
+      {
+        "path": "web-v2/frontdoor-candidate.html",
+        "bytes": 1313,
+        "sha256": "c401aebec821633e14d0de37ca5b9bd76c4c4a87d6496904b17f84529c958b25"
+      },
+      {
+        "path": "web-v2/package.json",
+        "bytes": 960,
+        "sha256": "95f7feeeb6b21af0a340341d8402f17385884156821c17f11d73573eefcda43a"
+      },
+      {
+        "path": "web-v2/src/FrontdoorCandidateApp.tsx",
+        "bytes": 1888,
+        "sha256": "6e0b015fddc1722fe073b2cb243d3ec0e7d29d8652d5dac2652ac5b73c895a9e"
+      },
+      {
+        "path": "web-v2/src/PonsCasePreview.tsx",
+        "bytes": 23620,
+        "sha256": "102649ba8d6151a604ba3612f838e929b44eaf16cba64d03c76ded6cb0be617f"
+      },
+      {
+        "path": "DESIGN_SPEC.md",
+        "bytes": 14704,
+        "sha256": "6e1e022aa21ae29c4d61adb682f9f4a207a8b78fbead82472becbf8e183ed8d7"
+      },
+      {
+        "path": "REBIRTH_011_REPORT.md",
+        "bytes": 11203,
+        "sha256": "67f6a5febb8090949fcd6017c4f56cbc2432b0d397e0abac62ddfc8d22bcdc12"
+      },
+      {
+        "path": "REBIRTH_01_REPORT.md",
+        "bytes": 10318,
+        "sha256": "998eeda9234fd5c7d77057b32172e7de02a1b031d6685f0533afa683bd94d081"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-390x844.png",
+        "bytes": 414812,
+        "sha256": "e0c5ac7168f4d474df76d98e4138fff2098852da4e9cfe60888a39a8f2bc6718"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/README.md",
+        "bytes": 4298,
+        "sha256": "19465fdfdcf130f9d31bc11ba588dec1be6c49dbba1015518bc649ef0bd6fbda"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/performance.json",
+        "bytes": 2906,
+        "sha256": "5a45bdace45d511842ce206b376fe0ce09c19d83075d74051781e981abdc7c51"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-360x800.png",
+        "bytes": 357038,
+        "sha256": "f8dd42e0430f6a42bc232279e55d46d88284b60adeb6da2b9f72f72fb7952f45"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-1024x768.png",
+        "bytes": 931440,
+        "sha256": "19283a461e01cc1c9c40cc014f90e99fe8b6296e4f42752ed552eaa05c348318"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/before-390x844.png",
+        "bytes": 450394,
+        "sha256": "2d52646432930efd9390b31a18453e1160f4bdeaba860cf13ce3aabfccab46b1"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-token-1672x941.png",
+        "bytes": 955653,
+        "sha256": "e30cc0e0f4e986cb5773022362a844cd4820858134fe2a51edbb09d2df5fea3b"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-case-1672x941-full.png",
+        "bytes": 2350140,
+        "sha256": "a0aa30308aeeb8b4831223b96025e04612cbc2b496741d73d79fb0961919680e"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-case-1672x941.png",
+        "bytes": 2245678,
+        "sha256": "fd79d7cb2470b10337ad1ffbc893567a69ade3295b3439377aed310a7b5fa033"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-token-390x844.png",
+        "bytes": 159488,
+        "sha256": "d29ab81c3b4b98c0349e9a9b660c5116f96a678ec5b1ccb57e0d3dee609abcee"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/CAPABILITY_MATRIX.md",
+        "bytes": 5177,
+        "sha256": "0f4d8ee7352f598ebc59416fc727bdf074d91871a5cac7f9ac2c505ff6329c57"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-menu-390x844.png",
+        "bytes": 259278,
+        "sha256": "90da61a027293513bbb2e622b91116b0b47c6006a4d278347e97035e55bd0fb4"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-390x844-full.png",
+        "bytes": 652209,
+        "sha256": "0c3f8db28d809649c0c89b0bfcbf18e48c39530637163172f4d8f91c032dc4c7"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/browser-summary.json",
+        "bytes": 4609,
+        "sha256": "28e176e86199326cd899141476f618529c6a5e0789d0012887b90678f7884e23"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-1672x941-full.png",
+        "bytes": 1633279,
+        "sha256": "70e3f7446bd4f880e85cbae1cc62db9fb4941ab9df84b249699ffc69fa871837"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-case-receipts-1672x941.png",
+        "bytes": 2251866,
+        "sha256": "cf49f3dd7f0228b2b67a103ec2407a754279f3d9d135a34d2daf85dcfe7f5ceb"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/comparison-1672x941.png",
+        "bytes": 1856090,
+        "sha256": "fd753062665adb602e8a076efe69f36bba5e5144a124d7f7da9d9fe9c071d9cc"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-768x1024.png",
+        "bytes": 848682,
+        "sha256": "5a4ad185e09258dd75655088902a803a85bb53d3e667a53387de23cd0387de22"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-case-390x844.png",
+        "bytes": 439700,
+        "sha256": "f9fd0df4f518db7156c11630a2118797cc97a43bd7535ea4c295317b6b1b1172"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/hostile-review.md",
+        "bytes": 6404,
+        "sha256": "db38ce65c0bac4e51ebe31fabf920c59cc7f6d729f26615ade275976082b5ce5"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/before-1672x941.png",
+        "bytes": 2058376,
+        "sha256": "31a1d943a8c228372ed66d752e61f24c701e953e2d8691bca4c2e47818724fec"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-320x700.png",
+        "bytes": 297984,
+        "sha256": "9f37fb6a81215af36868998ad7081cef917fd8c51b242ae9de9b53cab17ee68c"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-token-390x844-full.png",
+        "bytes": 210493,
+        "sha256": "902cb960611668750b50139abb80cc4bd729b1bb91947833037ccccc02edd3c7"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-430x932.png",
+        "bytes": 467885,
+        "sha256": "7be16ac991b1c98bfa2e12e7666fe163d96ee4ff6ed38e04318c7b4cd198f3ff"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-1440x900.png",
+        "bytes": 1331492,
+        "sha256": "8da7c83d0afeb09fdcb8c2476def998524ce3c420837a950d05287512d157aa3"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/comparison-390x844.png",
+        "bytes": 879545,
+        "sha256": "515e6096444bdbd680d083334d63c76f373fffc2b2a899a05d0e9003bd485559"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-case-trail-1672x941.png",
+        "bytes": 2249522,
+        "sha256": "4939c43200bb8537f1895871bdac8c3f349a4e947fbc6c1159fd5db536fc2b8b"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-token-1672x941-full.png",
+        "bytes": 988523,
+        "sha256": "032f651ee9095cb1294669ff9bd2d15bc66673d2e4cb9658e37de5947da79311"
+      },
+      {
+        "path": "docs/receipts/rebirth-01/after-1672x941.png",
+        "bytes": 1471083,
+        "sha256": "1dd5010e7ec6b8abbe231d20e9636549ed72fd38ca8b64a4e605488e32bf3531"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/after-390x844.png",
+        "bytes": 409850,
+        "sha256": "321362bfa9540f22fd675e4278aa8217cba791b0c303d3928a8908d46ed2ab1c"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/README.md",
+        "bytes": 2437,
+        "sha256": "6de97baa46603d00aadba2d7d8334ee4f897926286c00457827eac18322f08b7"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/performance.json",
+        "bytes": 4918,
+        "sha256": "9596bb5cc8bcf33c2802482b5e6a6d6f727f2d47f59a4c9f01512cc121102cb0"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/after-1024x768.png",
+        "bytes": 1066812,
+        "sha256": "e7e2d2e324195d0bc12712c6c4e23ad473935243a55133df628071aabd1c7e91"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/after-token-1672x941.png",
+        "bytes": 933359,
+        "sha256": "531fe2c43cbcf1e0c38bd203b5ed66b329499aa4e4aa74686d13e99df3631f8a"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/after-case-1672x941.png",
+        "bytes": 2245323,
+        "sha256": "96f2f895a5eafb86a728d3b837640aa3f3d03eb084ebf3b3f655357f56660d19"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/TEST_RESULTS.md",
+        "bytes": 7222,
+        "sha256": "56389581af8bf5eeba7d6758ed63eed15b7fe5f8ee64a41da881cd451775cc5d"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/ASSET_BASELINE.sha256",
+        "bytes": 628,
+        "sha256": "a0cdf04aa01a2db14e459b4a6f76802d9501c7687fc6d4d34f679b4a010e37f6"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/CAPABILITY_MATRIX.md",
+        "bytes": 2637,
+        "sha256": "706fd524a280fcc562563315b5fdb937caa521a38972605e5fe3f28cd53dc902"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/HOSTILE_REVIEW.md",
+        "bytes": 8775,
+        "sha256": "3e51cb549365a76662660b19c4fc969620f2e97b75e65938ed8b17634d4bd8ae"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/after-menu-390x844.png",
+        "bytes": 259305,
+        "sha256": "50b4ed6cb9ba2295d3959b65f0343a7270c954b74878971da176b799b91b596c"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/ASSET_AFTER.sha256",
+        "bytes": 849,
+        "sha256": "c1ea8c8f0c79f43057fc5e83e74cafef3028369f62d5e741abb7d3f83c134917"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/browser-summary.json",
+        "bytes": 8872,
+        "sha256": "06f01f76ba9866fa6cec90ea7f020a9550981fc6f5bf517b44707de0b2658fcc"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/after-1672x941-full.png",
+        "bytes": 2088672,
+        "sha256": "a81472cadd9207234dd926afebf06c7e615751acb8e886f75f3e37018a93e326"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/comparison-1672x941.png",
+        "bytes": 2560925,
+        "sha256": "0c90c8f57bb79f617d4b99d484427a57f3dd9c32989713470aa955b29ff9d5b7"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/performance.cjs",
+        "bytes": 5283,
+        "sha256": "4ea50ddc6e4353b1e720f97744efe89769ece87efb2a75401b74f38c1437968f"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/browser-verify.cjs",
+        "bytes": 18456,
+        "sha256": "95c7e470ddbe71221775a8421984c1f999e155215bde613a329529d5cf086c7c"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/after-768x1024.png",
+        "bytes": 900830,
+        "sha256": "01088272a97962aa2e2a6c69ff0c1205b23a2254d44702d47527912394567fc2"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/VISUAL_CHANGELOG.md",
+        "bytes": 8164,
+        "sha256": "d109eaeaac3510c6d3cf68deb7c9886dea482a5852f0d047378e5157d0f1deff"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/make-comparisons.py",
+        "bytes": 4381,
+        "sha256": "e8faba4a64e3b87f37c89294686f06601c0975077fb4ecd26788b2546bf7eb7a"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/after-320x700.png",
+        "bytes": 295917,
+        "sha256": "a9bff7cf30d89de95985151576ac0690f954a86283fd022b99bbb266bebf8b36"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/after-1440x900.png",
+        "bytes": 1635086,
+        "sha256": "f93672743ac59e92acb88aca133dcd8578b9a715210edc38ef4e514c7a757891"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/comparison-390x844.png",
+        "bytes": 846245,
+        "sha256": "911edf0f2bac4e6b0388dcd390240944ff091b066ac5b421572d776c680b78cb"
+      },
+      {
+        "path": "docs/receipts/rebirth-011/after-1672x941.png",
+        "bytes": 1856193,
+        "sha256": "e2de6c20c9615421ed7697155b70b3097c5e2e921aa74ede38b10269c16ff3c4"
+      },
+      {
+        "path": "web-v2/checks/serve-rebirth-preview.mjs",
+        "bytes": 4209,
+        "sha256": "15b48756fa683b18155a2dc31f7a32cc0bdc58c712b0c99ec80e77f67e9f3257"
+      },
+      {
+        "path": "web-v2/src/dumpster/DumpsterHome.tsx",
+        "bytes": 35899,
+        "sha256": "00b9bbc044d40ea40e1fc322a547a18020f8c960462595d8f8f92626e94c7eb2"
+      },
+      {
+        "path": "web-v2/src/dumpster/tokenStatus.ts",
+        "bytes": 1736,
+        "sha256": "f98b78f9765f43fa421e4024de864f2355f7956787a21c83f0abb28f0dad98af"
+      },
+      {
+        "path": "web-v2/src/dumpster/dumpster.css",
+        "bytes": 45526,
+        "sha256": "b276e129d4e2ec04e0f49128450a739a633f4dd36d596be9eb8f3c2e660f3c94"
+      },
+      {
+        "path": "web/assets/dumpster/alley-hero-mobile.webp",
+        "bytes": 200280,
+        "sha256": "53fb1b88b0ddc7da6a2851081a8a640c67ad99321d02762f1e5c969a58aabcff"
+      },
+      {
+        "path": "web/assets/dumpster/rat-hero.webp",
+        "bytes": 345960,
+        "sha256": "0f25287966bcda44af208d1cdc56e45cdfd3aa8420052cbe1c716b9eee4f441e"
+      },
+      {
+        "path": "web/assets/dumpster/alley-hero.webp",
+        "bytes": 314674,
+        "sha256": "7dbfa796550694b2e5782103ebe0a2549bcdc80c172e0cda4138b17b260e3060"
+      },
+      {
+        "path": "web/assets/dumpster/rat-hero-mobile.webp",
+        "bytes": 130960,
+        "sha256": "94a8a96cd136291500be17e1f1b0193eaf955f91eedf100a1ba83f83b37cf86f"
+      },
+      {
+        "path": "web/assets/fonts/PRESSSTART2P-OFL.txt",
+        "bytes": 4413,
+        "sha256": "705960c3281a5765ecc0b59bd4ed7ca59eed165748076bc2fc3e8fdbfeb944b0"
+      },
+      {
+        "path": "web/assets/fonts/SILKSCREEN-OFL.txt",
+        "bytes": 4394,
+        "sha256": "86c5e9c9382cdcc5948704fdfe60f2aa164a719746931219a42736ecd9cefbd3"
+      },
+      {
+        "path": "web/assets/fonts/pressstart2p-400.woff2",
+        "bytes": 12512,
+        "sha256": "afec86997fdaf54af1f59358fa2c1e2a0f1d04146edad18e5cd141d0384a7548"
+      },
+      {
+        "path": "web/assets/fonts/silkscreen-700.woff2",
+        "bytes": 7524,
+        "sha256": "5741b7f01a127f40ed70281fa2f686e8fc2cfe241930a120e4d1a1cebe78f995"
+      }
+    ]
+  },
+  {
+    "label": "canonical-dirty",
+    "directory": "/home/swirky/DevHub/repos/binrat",
+    "head": "2d507045327bd4269a5c0dd4f2050805488f60ee",
+    "status": [
+      "?? docs/launch-self-service/",
+      "?? scripts/check-candidate-gate-c2.cjs",
+      "?? scripts/generate-stability-v1-release-config.mjs",
+      "?? scripts/verify-stability-candidate-config.mjs",
+      "?? tools/",
+      "?? wrangler.jsonc",
+      "?? wrangler.stability-v1-release.generated.jsonc"
+    ],
+    "files": []
+  }
+]

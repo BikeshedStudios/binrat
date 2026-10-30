@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "binrat.local-replay/1",
+  "mode": "REPLAY",
+  "authority": "PINNED_PUBLIC_SNAPSHOT",
+  "sourceCaseId": "7a3be3d57a9d7db7c155945751a1e7d455a99ed6b249b6309065ff2c3eb0f568",
+  "startBlock": "84271870",
+  "endBlock": "84274428",
+  "feedDigest": "7d922050fab3da48fb8a0ee4067f616de91f6441497b506058d07eb294904fe9",
+  "checkpointHash": "0x10cc15f25b3d24c78d39f64e3492c6ab0d4aacef07e619b7468e20bbd9d3d46d",
+  "sourceSha": "30564864f5d406414f0c09c4d2ba2be5d1e79ab8",
+  "recordedAt": "2026-10-09T15:50:03.572Z",
+  "candidateLimit": 20,
+  "examinedIds": [
+    "52767f5c62ff622891a4fa42ccd84e1dd88ab6fff4baeb37173590e5b38d5386",
+    "960c47640f24aee5f16b8de6a75db151517fb5e669ca90579ddad8ae50576d1b",
+    "37bc12899c484e30b00c38e522b4990111f48e552517de8424c4c1e3be14348e",
+    "a49ed33237f0a5b7ba2b3f6b5fcd478c77d76a4bc15af960adebe7a7708a7883",
+    "8ca99b1fdfade962fff4c04da3a563c81d11f32617005ac5a3f9455b1bbbb44a",
+    "6cd95fbfcef9b56d6c308016bc2cebf90633088e421fb40917df99b1974e8477",
+    "5de132f3021db865b553dadde106e589c1f9107b58402e9a0d42ee39b57010ce",
+    "eee7f67113421a9eed5483d6872907de34d49657e5be4658663e7ac2763df337",
+    "7f2776d0746aab2595c0fa9061edc92910914feeafe917453b7a4333f8ec0d89"
+  ],
+  "matchIds": [
+    "960c47640f24aee5f16b8de6a75db151517fb5e669ca90579ddad8ae50576d1b"
+  ],
+  "outcome": "MATCH_IN_RECORDING",
+  "notificationState": "LOCAL_RECEIPT_ONLY",
+  "receiptId": "replay:441518e3f858d5789ad8df9b99846a0b9346b7c30f2d1ad45e4799d10cbbd511",
+  "completedAt": "2026-10-30T16:14:06.618Z"
+}

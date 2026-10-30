@@ -1,0 +1,17 @@
+{
+  "schema": "binrat.unleashed.hostile/1",
+  "at": "2026-10-30T16:10:54.409Z",
+  "attacks": [
+    {
+      "attack": "Failed save must not confirm employment or create memory",
+      "result": "PASS"
+    },
+    {
+      "attack": "User field note rendered as HTML/script",
+      "result": "PASS — literal text"
+    }
+  ],
+  "errors": [],
+  "verdict": "FAIL",
+  "failure": "AssertionError [ERR_ASSERTION]: An older background GET restored a canceled assignment in the UI\n\n0 !== 1\n\n    at /home/swirky/DevHub/experiments/binrat-unleashed-01-20261030/unleashed/checks/hostile.cjs:36:10"
+}

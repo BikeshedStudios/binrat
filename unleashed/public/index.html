@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#13191b" />
+    <meta
+      name="description"
+      content="Find a crypto trail. Check the receipts. Give your Rat something to remember. A local BINRAT historical replay."
+    />
+    <title>BINRAT — The Night Desk</title>
+    <link rel="icon" href="/assets/favicon.png" />
+    <link
+      rel="preload"
+      href="/assets/plex-condensed-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" type="module"></script>
+  </head>
+  <body>
+    <a href="#main" class="skip">Skip to the investigation</a>
+    <header class="topbar">
+      <a class="brand" href="#/" aria-label="BINRAT home"
+        ><img src="/assets/favicon.png" width="38" height="38" alt="" /><span
+          >BINRAT<small>THE RAT REMEMBERS.</small></span
+        ></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#/" data-nav="home">The alley</a
+        ><a href="#/den" data-nav="den"
+          >My den <span id="den-count" class="nav-count">0</span></a
+        ><a href="#/capacity" data-nav="capacity"
+          >Rat capacity <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+      <span class="environment"><i></i> LOCAL REPLAY</span>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="loading">
+        <span class="eyebrow">OPENING THE NIGHT DESK</span>
+        <h1>Checking the receipts…</h1>
+        <p>The evidence comes before the story.</p>
+      </div>
+    </main>
+    <footer class="footer">
+      <a href="#/">BINRAT / NIGHT DESK 01</a
+      ><span>Historical evidence. Human judgment.</span
+      ><a href="#/source">Source & limitations ↗</a>
+    </footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <dialog id="employ-dialog" aria-labelledby="employ-title"></dialog>
+  </body>
+</html>

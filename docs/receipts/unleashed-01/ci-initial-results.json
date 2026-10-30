@@ -1,0 +1,10 @@
+{
+  "experimentRun": "https://github.com/CipherCuttle/binrat/actions/runs/41089127521",
+  "head": "37985e1a535c3f30f9f62587406af353a0fc2612",
+  "backend": "16/16 PASS",
+  "browserSetup": "FAIL \u2014 Playwright 1.56.1 unsupported on ubuntu26.04-x64 selected by ubuntu-latest",
+  "repair": "Pin new experiment workflow to ubuntu-24.04; runtime unchanged",
+  "inheritedYamlRun": "https://github.com/CipherCuttle/binrat/actions/runs/41089021372",
+  "inheritedYamlJobs": 0,
+  "privilegedDeploymentJob": "SKIPPED in normal CI"
+}
