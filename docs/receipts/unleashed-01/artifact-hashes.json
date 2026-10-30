@@ -9,13 +9,13 @@
     },
     {
       "path": ".github/workflows/binrat-unleashed-offline.yml",
-      "bytes": 1440,
-      "sha256": "f08d518aa2dbcccf378a1553289fefb4b259e051760ca06145151966d1330c54"
+      "bytes": 1439,
+      "sha256": "665471518668eb708d3e8fdb14d69fee335656e605ec9ea44ba5c1c4a3c31c7c"
     },
     {
       "path": "BUILD_REPORT.md",
-      "bytes": 12019,
-      "sha256": "6c270a88b20700517e209042e2ac77fd80b7008684cc9ec703527f7f2d716fe6"
+      "bytes": 12519,
+      "sha256": "8fc163b0c3f9cbb3cac12606d1cc0e2958fed786684ebc3f09090b6dfa88c1cf"
     },
     {
       "path": "OWNER_PLAYTEST.md",
@@ -66,6 +66,11 @@
       "path": "docs/receipts/unleashed-01/case-first-mobile.png",
       "bytes": 54864,
       "sha256": "0fd3980cda5979795677e755f10240b983f16ace74106d846de6b098b3bbfe86"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/ci-initial-results.json",
+      "bytes": 524,
+      "sha256": "6c3da8c9ad879c823a4c5bcbb1f54dc35309bcaadbc4c388f11e34aad75f98d5"
     },
     {
       "path": "docs/receipts/unleashed-01/delivery.json",
@@ -219,8 +224,8 @@
     },
     {
       "path": "docs/receipts/unleashed-01/workflow-safety.json",
-      "bytes": 18109,
-      "sha256": "7931ce0bb17404da148121dd169ff972e41c2ddec8007a7c7ad95cba76ab1b24"
+      "bytes": 18335,
+      "sha256": "a7e4f53c7cc7adecce9d06c86e6e2b39275ba26676d9e213226d999b7d9e1b37"
     },
     {
       "path": "unleashed/.gitignore",

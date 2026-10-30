@@ -12,7 +12,7 @@ permissions:
 jobs:
   local-product:
     if: github.head_ref == 'experiment/binrat-unleashed-01-20261030'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4

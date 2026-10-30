@@ -140,7 +140,7 @@
   "branchWorkflows": [
     {
       "path": ".github/workflows/binrat-unleashed-offline.yml",
-      "sha256": "f08d518aa2dbcccf378a1553289fefb4b259e051760ca06145151966d1330c54",
+      "sha256": "665471518668eb708d3e8fdb14d69fee335656e605ec9ea44ba5c1c4a3c31c7c",
       "events": {
         "pull_request": {
           "paths": [
@@ -510,11 +510,12 @@
     "Privileged PR jobs in ci.yml require exact feat/binrat-rat-radar-v0 and do not match.",
     "Remaining conditional PR jobs target unrelated branch prefixes or paths.",
     "Default check installs/builds/tests existing source; no deployment/secret inputs.",
-    "New workflow uses contents:read, persist-credentials:false, Node 24, pinned native Playwright, disposable local SQLite and standard ubuntu-latest; no secrets or custom runner.",
+    "New workflow uses contents:read, persist-credentials:false, Node 24, pinned native Playwright, disposable local SQLite and standard ubuntu-24.04; no secrets or custom runner.",
     "Repository is public. Standard hosted CI and free npm packages only. No provider/RPC/model calls, paid service, dispatch, deployment or notification."
   ],
   "checkedAt": "2026-10-30T16:18:21.494155+00:00",
   "defaultHead": "3a5f53b7b5aca19c7c7ac4b5499453f224c92d96",
   "integrationHead": "160ab9c4fbb2f9cebd4a45cc20f5e75d85f57302",
-  "integrationDelta": "Documentation-only; no code/workflow/dependency/evidence changes from selected baseline."
+  "integrationDelta": "Documentation-only; no code/workflow/dependency/evidence changes from selected baseline.",
+  "runnerCompatibilityCorrection": "Pinned ubuntu-24.04 after ubuntu-latest moved to unsupported 26.04. Pinned Playwright nativeDeps confirms ubuntu24.04-x64 support. Standard public hosted runner; no new privileges or cost."
 }

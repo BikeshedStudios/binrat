@@ -96,6 +96,8 @@ The original status says `FRESH_VERIFIED` at capture time; its window has expire
 
 Workflow triggers, job conditions and hashes were inspected before commit/push. Public repository, standard hosted runner, no custom runner, no secret references in the new workflow, no automatic secret/deployment jobs matching this branch. No `pull_request_target` or `workflow_run` exists in the inspected default/candidate set. Existing privileged workflows require other exact branches or manual dispatch. One inherited, inactive Rat Radar workflow has a pre-existing YAML body error; its event header was separately inspected, and this experiment does not repair it. Details: [workflow-safety.json](docs/receipts/unleashed-01/workflow-safety.json).
 
+The first remote experiment run passed its backend tests but failed browser setup: `ubuntu-latest` selected Ubuntu 26.04, unsupported by the repository-pinned Playwright 1.56.1. The experiment runner is now pinned to supported standard `ubuntu-24.04`; no runtime code changed. The initial failed setup is preserved in `ci-initial-results.json`. The inherited Rat Radar YAML error also produced a failed workflow record with **zero jobs**; normal CI explicitly skipped its privileged deployment job.
+
 The only authorized remote writes are the dedicated experiment branch and one draft PR. No merge, production deployment, provider/RPC/model call, collector activation, signing, transaction, payment, purchase, token launch or real message occurred. Standard public GitHub CI/free npm development tools only; **$0 additional spend**.
 
 ## HOSTILE REVIEW
