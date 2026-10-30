@@ -8,7 +8,7 @@ Build one understandable loop: discover a recorded Pons trail → inspect the Ca
 
 Selected code baseline: `30564864f5d406414f0c09c4d2ba2be5d1e79ab8`. Isolated clone: `/home/swirky/DevHub/experiments/binrat-unleashed-01-20261030`; branch `experiment/binrat-unleashed-01-20261030`. Existing worktrees and the approved uncommitted REBIRTH 01.1 candidate were preserved. The remote integration head `160ab9c4fbb2f9cebd4a45cc20f5e75d85f57302` adds documentation only; its updated authority documents were read and reconciled before delivery.
 
-The detailed [source map](SOURCE_MAP.md), [stack decision](unleashed/ADR-001.md), before/after source inventories, asset hashes and workflow review are included. Code and evidence hashes are recorded in `docs/receipts/unleashed-01/`; delivery commit identity is recorded after committing, with runtime hashes bound back to the tested files.
+The detailed [source map](SOURCE_MAP.md), [stack decision](unleashed/ADR-001.md), before/after source inventories, asset hashes and workflow review are included. Runtime code commit: `ea1af21ca90a3041f21acd847b87b80c88c34a68`. The final documentation commit is obtained with `git rev-parse HEAD`. Every runtime hash recorded by the browser checks was compared with the committed bytes at that code SHA. [Delivery identity](docs/receipts/unleashed-01/delivery.json) and [artifact hashes](docs/receipts/unleashed-01/artifact-hashes.json) bind the code, evidence and screenshots. Remote CI results are linked in the draft PR and final delivery message; the test counts below are the completed local checks.
 
 ## CHANGESET
 

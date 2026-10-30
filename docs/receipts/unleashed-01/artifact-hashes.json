@@ -1,0 +1,341 @@
+{
+  "runtimeCommit": "ea1af21ca90a3041f21acd847b87b80c88c34a68",
+  "algorithm": "SHA-256",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 135,
+      "sha256": "6346c4d892e066a7b94e4f6e43c452bec665a54b736f3644098dcc623abbe9eb"
+    },
+    {
+      "path": ".github/workflows/binrat-unleashed-offline.yml",
+      "bytes": 1440,
+      "sha256": "f08d518aa2dbcccf378a1553289fefb4b259e051760ca06145151966d1330c54"
+    },
+    {
+      "path": "BUILD_REPORT.md",
+      "bytes": 12019,
+      "sha256": "6c270a88b20700517e209042e2ac77fd80b7008684cc9ec703527f7f2d716fe6"
+    },
+    {
+      "path": "OWNER_PLAYTEST.md",
+      "bytes": 4771,
+      "sha256": "02cacd871baed46fafdda01e92f3e7d8ec8bb0bffb7ef922bc52585c149c44a9"
+    },
+    {
+      "path": "SOURCE_MAP.md",
+      "bytes": 4976,
+      "sha256": "c952538c5e280005348adc5c67f03c705cf3cc67303191288294856634a4e766"
+    },
+    {
+      "path": "docs/receipts/sprint-a1-1/public-feed.json",
+      "bytes": 12977,
+      "sha256": "3382e3937feb55c63b80c8266a301d6e273331e1450b3bd1bdd51a3257f786c9"
+    },
+    {
+      "path": "docs/receipts/sprint-a1-1/public-status.json",
+      "bytes": 478,
+      "sha256": "152673792b5870c1936bf9adbb9b16a8f1d27e7ac54c619e53f0e9d2926b143b"
+    },
+    {
+      "path": "docs/receipts/sprint-a1-1/transport.json",
+      "bytes": 639,
+      "sha256": "0f78b6d1668895b22dc93e1d19326a7d925015ca7fb332096f2690d2bf140c08"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/asset-provenance.json",
+      "bytes": 1681,
+      "sha256": "1dc0e2896148f666408e71e56ac299d03dfd5cdfedb0931c0f0b33c36eed047d"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/baseline-desktop.png",
+      "bytes": 1635086,
+      "sha256": "f93672743ac59e92acb88aca133dcd8578b9a715210edc38ef4e514c7a757891"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/baseline-mobile.png",
+      "bytes": 409850,
+      "sha256": "321362bfa9540f22fd675e4278aa8217cba791b0c303d3928a8908d46ed2ab1c"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/browser-results.json",
+      "bytes": 14038,
+      "sha256": "d49b00eb133d55d4191d1df6edcdf2c4792577838b7202f6aeecfc05381677c8"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/case-first-mobile.png",
+      "bytes": 54864,
+      "sha256": "0fd3980cda5979795677e755f10240b983f16ace74106d846de6b098b3bbfe86"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/delivery.json",
+      "bytes": 1205,
+      "sha256": "6ecb0d23a5bc7e2d6264ee28964c87e17e22fe89028375e6a73dcb75eac672f4"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/den-first-mobile.png",
+      "bytes": 100419,
+      "sha256": "544d2e75f34daabc939a31993c745a9696431d465716d913fe41ad65f3d35fa0"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/desktop-case.png",
+      "bytes": 212680,
+      "sha256": "a7896989638822c0d1fc72474a962a60ca58c642cf9531ccbae367040983785b"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/desktop-home.png",
+      "bytes": 688041,
+      "sha256": "05ae48e1d80ae6277da0339c1cdfd7cdaa0a61da7ea5f993e90cdea902cf4733"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/desktop-memory.png",
+      "bytes": 82201,
+      "sha256": "20a3f3c6b27692b88add499cf65fec10848042a2ccd69eed86936094d00f1062"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/desktop-receipt.png",
+      "bytes": 161899,
+      "sha256": "fac97a85f3caa488b7703e4eb266cecb2c405615a86e4981651bd75030f2c77d"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/first-1440.png",
+      "bytes": 704814,
+      "sha256": "fe28ec37acba8e562d8e30222dea66ec37eedf8aac57562396ee7cee57bfce4a"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/first-390.png",
+      "bytes": 179450,
+      "sha256": "51c14f7abb8d3af7f840a84e30aa321efdcec3845cc3f384e5b38d951c24f4d2"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/home-1024.png",
+      "bytes": 451232,
+      "sha256": "8fe20612b37202d417068b592a1442e767f1913a9dc568a0643a1ace7e5be77f"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/home-320.png",
+      "bytes": 145810,
+      "sha256": "d4b6a948b2065daf7ecc787240601e134171f4710cc972070a8d0e7792c7c574"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/hostile-initial-results.json",
+      "bytes": 591,
+      "sha256": "2d207ccc55ef1ae53253bb5573e037ad7478ece4f97176cdcde5e7aee36ef618"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/hostile-results.json",
+      "bytes": 760,
+      "sha256": "54873f2a8da88441090f263a7af584752ae9020ce1e99566519ab111ef12881d"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-capacity.png",
+      "bytes": 42362,
+      "sha256": "aff0721848efbec7681269f28e6e7ec2a0e13954762c101cdbd8af303ff01457"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-case.png",
+      "bytes": 53954,
+      "sha256": "dd5f97b2532281608fc23462b23f85e39822ad0991d65bbffc1118d416b6841e"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-den-unavailable.png",
+      "bytes": 35215,
+      "sha256": "3fc58b027f844f011648b3d0c76e5758967dcda1cd12f7ca1469155f43f2e0a9"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-employ.png",
+      "bytes": 48503,
+      "sha256": "9a6c5178281cb26270d6fd5064deb83d66c0248562f36be425120d9d8aac5faf"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-empty-den.png",
+      "bytes": 150322,
+      "sha256": "b6603ede613fee033b441ea49158d62b4c2d1698b2b9feda8aa17b48a30293a2"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-empty-search.png",
+      "bytes": 47437,
+      "sha256": "332bead154f89c999ab18f42e196e0d9e903b2436a9633983e0640ce013115b6"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-home.png",
+      "bytes": 256608,
+      "sha256": "8ab50b37ffedad46f20c7e29d511582e4af6b6897faad836c20df9534f33c45e"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-invalid-receipt.png",
+      "bytes": 82431,
+      "sha256": "ed966c285e9140a35364da96934e1cadb8cc9edd40346736ba65b976b527e9fd"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-memory.png",
+      "bytes": 52475,
+      "sha256": "79edd9a857f0785df1246ff46072ca258d22a4afed18c5e752d0702acd118ccc"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-receipt.png",
+      "bytes": 126162,
+      "sha256": "59c11d20fdcde6dd679d3b2c579024dd31304321f582181e83800f7f7099fa13"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-refined.png",
+      "bytes": 256547,
+      "sha256": "abe8c04b8d58be2568e19b347b132d809e87ca50f8fb4f67d4334317496ac25f"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-source-unavailable.png",
+      "bytes": 36467,
+      "sha256": "c80d1bbc4e87c7290a04850676fa1cf4959a9fb8b0710f6196f611d1d35e1ece"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/mobile-source.png",
+      "bytes": 144892,
+      "sha256": "375f7280ac1b7fb5e33b09c0854c533f17a25d4ef76abf3063dd6ce9e13e0914"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/source-after.json",
+      "bytes": 1732,
+      "sha256": "f131bbb76c56a6d101e3e9e476f5186eb9fd5f34b4eb3ad53c4012b97bb1cebf"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/source-before.json",
+      "bytes": 15159,
+      "sha256": "e3724cae842e204f65705d3ab4ab486fdbbc0487871ea5c88815cd67c0659358"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/test-summary.json",
+      "bytes": 920,
+      "sha256": "fb9f2bd4752da71fd4b95f71b901057b6ed4f95c431bcfd7de3fb91213d223f9"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/unit-results.txt",
+      "bytes": 1613,
+      "sha256": "c4e71d3026397caa2855b00ed415dfe3f1c2cfa8176e80e86277671822bd3768"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/walkthrough-receipt.json",
+      "bytes": 1527,
+      "sha256": "62a0383c3f0714dfd38de741dcee04842e44f89508bd9cacbc2da05b32c9fbcf"
+    },
+    {
+      "path": "docs/receipts/unleashed-01/workflow-safety.json",
+      "bytes": 18109,
+      "sha256": "7931ce0bb17404da148121dd169ff972e41c2ddec8007a7c7ad95cba76ab1b24"
+    },
+    {
+      "path": "unleashed/.gitignore",
+      "bytes": 21,
+      "sha256": "1b72d7413123acadb3dcf597a45c48f34292ef33e85925c7b2b42fdadcc56a31"
+    },
+    {
+      "path": "unleashed/ADR-001.md",
+      "bytes": 2244,
+      "sha256": "c5f28798941dc713fa6a244ada0872881963b26db17bde48556ea5e9ce65e043"
+    },
+    {
+      "path": "unleashed/README.md",
+      "bytes": 4723,
+      "sha256": "89bd78e6864e9cec6e1ae0c573ab81ac22f7b85566f88f1af6989d48ca6976e0"
+    },
+    {
+      "path": "unleashed/checks/hostile.cjs",
+      "bytes": 7427,
+      "sha256": "0384d7eb4ad44864d453984804b9c73b3358bfc14bffb2621e96b8f0bebeb05d"
+    },
+    {
+      "path": "unleashed/checks/journey.cjs",
+      "bytes": 14999,
+      "sha256": "dcdaa72f96f4ef034945060d35184a7b205bfae741429cdf565f210e4f0ebbb6"
+    },
+    {
+      "path": "unleashed/evidence.mjs",
+      "bytes": 4248,
+      "sha256": "86b98dcb707d3aff0970a7960b1325add5186225eeedc25fce901c64c5eed569"
+    },
+    {
+      "path": "unleashed/package.json",
+      "bytes": 266,
+      "sha256": "2a5346d917dc66364accb614a2d291e8bd47036d665e04d88ab870ede52cc376"
+    },
+    {
+      "path": "unleashed/public/app.js",
+      "bytes": 34952,
+      "sha256": "2b2523c4dc0fb4803f7cafb5071a6afa93d8b202a91057946f60bddd7711486e"
+    },
+    {
+      "path": "unleashed/public/assets/LICENSE.txt",
+      "bytes": 7370,
+      "sha256": "ed00326e4573277ab21aaf0580b014c95ee234b3e3144e8516e7ba76156f6507"
+    },
+    {
+      "path": "unleashed/public/assets/SILKSCREEN-OFL.txt",
+      "bytes": 4394,
+      "sha256": "86c5e9c9382cdcc5948704fdfe60f2aa164a719746931219a42736ecd9cefbd3"
+    },
+    {
+      "path": "unleashed/public/assets/alley-hero-mobile.webp",
+      "bytes": 200280,
+      "sha256": "53fb1b88b0ddc7da6a2851081a8a640c67ad99321d02762f1e5c969a58aabcff"
+    },
+    {
+      "path": "unleashed/public/assets/alley-hero.webp",
+      "bytes": 314674,
+      "sha256": "7dbfa796550694b2e5782103ebe0a2549bcdc80c172e0cda4138b17b260e3060"
+    },
+    {
+      "path": "unleashed/public/assets/favicon.png",
+      "bytes": 9977,
+      "sha256": "cce2f404d991febe03e1d94f9736851c8e8055ed505815a80e7fe6ce486353f9"
+    },
+    {
+      "path": "unleashed/public/assets/plex-condensed-bold.woff2",
+      "bytes": 17364,
+      "sha256": "b8e419feb977bcc68879eb26cc417500a00d876ab8230f9bf539c272fd4a50af"
+    },
+    {
+      "path": "unleashed/public/assets/plex-mono-regular.woff2",
+      "bytes": 13072,
+      "sha256": "57a9ee7256afe6fba2a49e5a1ed14e577ee54954a8e51e50309b364394e38b8d"
+    },
+    {
+      "path": "unleashed/public/assets/rat-hero-mobile.webp",
+      "bytes": 130960,
+      "sha256": "94a8a96cd136291500be17e1f1b0193eaf955f91eedf100a1ba83f83b37cf86f"
+    },
+    {
+      "path": "unleashed/public/assets/rat-hero.webp",
+      "bytes": 345960,
+      "sha256": "0f25287966bcda44af208d1cdc56e45cdfd3aa8420052cbe1c716b9eee4f441e"
+    },
+    {
+      "path": "unleashed/public/assets/silkscreen-700.woff2",
+      "bytes": 7524,
+      "sha256": "5741b7f01a127f40ed70281fa2f686e8fc2cfe241930a120e4d1a1cebe78f995"
+    },
+    {
+      "path": "unleashed/public/index.html",
+      "bytes": 2041,
+      "sha256": "2814cc3a956ceee116dbe77f423c3732be4e919a144ef78afb73585b96b40f20"
+    },
+    {
+      "path": "unleashed/public/styles.css",
+      "bytes": 49717,
+      "sha256": "cea96618feea0745b94bf8d6b6330502d0a6ff8435a9a8627057525389fbc8d6"
+    },
+    {
+      "path": "unleashed/server.mjs",
+      "bytes": 7491,
+      "sha256": "83a22ef30a96a9cf036d6d3772617051f927a723680d00d092dca713d328b47c"
+    },
+    {
+      "path": "unleashed/store.mjs",
+      "bytes": 7481,
+      "sha256": "2b9dde5636ff0d64146b942782134897f6086363ff6296afbe85a620f6ef9bbd"
+    },
+    {
+      "path": "unleashed/test/product.test.mjs",
+      "bytes": 13318,
+      "sha256": "9c7bbdd136798a4c1518c229e5df40f110fcd4d85727e454b80957c540488553"
+    }
+  ]
+}

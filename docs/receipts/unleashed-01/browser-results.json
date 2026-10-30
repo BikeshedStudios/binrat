@@ -702,5 +702,8 @@
     "unleashed/public/app.js": "2b2523c4dc0fb4803f7cafb5071a6afa93d8b202a91057946f60bddd7711486e",
     "unleashed/public/styles.css": "cea96618feea0745b94bf8d6b6330502d0a6ff8435a9a8627057525389fbc8d6",
     "unleashed/public/index.html": "2814cc3a956ceee116dbe77f423c3732be4e919a144ef78afb73585b96b40f20"
-  }
+  },
+  "testedRuntimeCommit": "ea1af21ca90a3041f21acd847b87b80c88c34a68",
+  "testRunHadUncommittedChanges": true,
+  "runtimeBinding": "Every recorded runtime SHA-256 compared with the committed bytes at testedRuntimeCommit; no rerun or change to recorded test outcomes."
 }

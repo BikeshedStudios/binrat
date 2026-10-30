@@ -1,0 +1,19 @@
+{
+  "codeCommit": "ea1af21ca90a3041f21acd847b87b80c88c34a68",
+  "codeBaseline": "30564864f5d406414f0c09c4d2ba2be5d1e79ab8",
+  "reviewBaseHead": "160ab9c4fbb2f9cebd4a45cc20f5e75d85f57302",
+  "branch": "experiment/binrat-unleashed-01-20261030",
+  "workspace": "/home/swirky/DevHub/experiments/binrat-unleashed-01-20261030",
+  "preview": "http://127.0.0.1:4194",
+  "verdict": "OWNER_VISUAL_AND_PRODUCT_REVIEW_READY",
+  "runtimeSourceHashes": {
+    "unleashed/server.mjs": "83a22ef30a96a9cf036d6d3772617051f927a723680d00d092dca713d328b47c",
+    "unleashed/store.mjs": "2b9dde5636ff0d64146b942782134897f6086363ff6296afbe85a620f6ef9bbd",
+    "unleashed/evidence.mjs": "86b98dcb707d3aff0970a7960b1325add5186225eeedc25fce901c64c5eed569",
+    "unleashed/public/app.js": "2b2523c4dc0fb4803f7cafb5071a6afa93d8b202a91057946f60bddd7711486e",
+    "unleashed/public/styles.css": "cea96618feea0745b94bf8d6b6330502d0a6ff8435a9a8627057525389fbc8d6",
+    "unleashed/public/index.html": "2814cc3a956ceee116dbe77f423c3732be4e919a144ef78afb73585b96b40f20"
+  },
+  "finalHeadCommand": "git rev-parse HEAD",
+  "ciState": "Local checks passed. Remote CI and draft PR outcome will be linked in the PR and final delivery message."
+}
