@@ -180,6 +180,11 @@ test("complete desktop + phone journey, durable across a server restart", { time
     await noOverflow(phonePage, `phone ${label}`);
   }
 
+  // Front Desk's dark notice must use readable text, not paper-dark ink.
+  await phonePage.goto(BASE + "/front-desk", { waitUntil: "networkidle" });
+  const noticeColor = await phonePage.locator(".stamp-banner").evaluate((el) => getComputedStyle(el).color);
+  assert.equal(noticeColor, "rgb(226, 207, 171)", "Front Desk notice lost its high-contrast bone text");
+
   await phonePage.goto(BASE + "/", { waitUntil: "networkidle" });
   await phonePage.screenshot({ path: join(denRoot, "docs", "receipts", "den-01", "e2e-home-390x844.png") });
   await phonePage.getByRole("link", { name: /PILE/i }).last().click();
