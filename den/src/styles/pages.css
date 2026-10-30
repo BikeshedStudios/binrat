@@ -994,7 +994,7 @@
   padding: 14px 16px;
   border: 1px solid rgba(140, 42, 28, 0.4);
   background: rgba(140, 42, 28, 0.05);
-  color: #4a3925;
+  color: var(--bone-2);
   font-size: 14px;
 }
 .stamp-banner .stamp {

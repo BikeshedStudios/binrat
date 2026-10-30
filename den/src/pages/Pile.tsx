@@ -6,6 +6,8 @@ import type { PilePayload } from "../types";
 import { ErrorPanel, Kicker, Loading, RatWire } from "../ui/Bits";
 import { IconArrow, IconSearch } from "../ui/Glyphs";
 
+const PAGE_SIZE = 12;
+
 const LENS_LABEL: Record<string, string> = {
   scent: "SMELLS FAMILIAR",
   fresh: "LATEST SCRAPS",
@@ -20,6 +22,7 @@ export function Pile() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [nonce, setNonce] = useState(0);
+  const [shown, setShown] = useState(PAGE_SIZE);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -59,8 +62,8 @@ export function Pile() {
           </p>
         </div>
         <div className="page-count">
-          <b>{number(data?.matched ?? 0)}</b>
-          <span>SCRAPS SHOWN</span>
+          <b>{number(Math.min(shown, data?.rows.length ?? 0))}</b>
+          <span>SCRAPS VISIBLE · {number(data?.matched ?? 0)} MATCHES</span>
           <span>OF {number(data?.total ?? 0)} DISTINCT · {number(120)} WINDOW READS</span>
         </div>
       </header>
@@ -78,7 +81,7 @@ export function Pile() {
               className="lens"
               aria-pressed={lens === option.id}
               title={option.hint}
-              onClick={() => setLens(option.id as typeof lens)}
+              onClick={() => { setLens(option.id as typeof lens); setShown(PAGE_SIZE); }}
             >
               {option.label}
             </button>
@@ -92,14 +95,14 @@ export function Pile() {
             ref={inputRef}
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value.slice(0, 120))}
+            onChange={(event) => { setQuery(event.target.value.slice(0, 120)); setShown(PAGE_SIZE); }}
             placeholder="0x address / token / tx / block"
             autoComplete="off"
             spellCheck={false}
           />
         </label>
         {query && (
-          <button type="button" className="btn btn--ghost btn--sm" onClick={() => setQuery("")}>
+          <button type="button" className="btn btn--ghost btn--sm" onClick={() => { setQuery(""); setShown(PAGE_SIZE); }}>
             CLEAR
           </button>
         )}
@@ -126,7 +129,7 @@ export function Pile() {
 
       {data && data.rows.length > 0 && (
         <div className="pile-grid" aria-live="polite">
-          {data.rows.map((row) => (
+          {data.rows.slice(0, shown).map((row) => (
             <button
               key={row.caseId}
               type="button"
@@ -160,11 +163,11 @@ export function Pile() {
         </div>
       )}
 
-      {data?.after && (
+      {data && data.rows.length > shown && (
         <div style={{ display: "flex", justifyContent: "center", marginTop: 18 }}>
-          <a className="btn btn--ghost btn--sm" href={`/api/pile?lens=${lens}&q=${encodeURIComponent(query)}&offset=${data.after}`}>
-            MORE SCRAPS (API)
-          </a>
+          <button type="button" className="btn btn--ghost btn--sm" onClick={() => setShown((n) => Math.min(n + PAGE_SIZE, data.rows.length))}>
+            SHOW {number(Math.min(PAGE_SIZE, data.rows.length - shown))} MORE · {number(shown)} OF {number(data.matched)}
+          </button>
         </div>
       )}
 

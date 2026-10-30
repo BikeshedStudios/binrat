@@ -1,0 +1,48 @@
+name: den-experiment-verify
+
+on:
+  pull_request:
+    paths:
+      - 'den/**'
+      - '.github/workflows/den-experiment-verify.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: den-experiment-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  den-offline:
+    if: ${{ startsWith(github.head_ref, 'experiment/binrat-den-') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: den
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.0
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install isolated locked Den dependencies
+        run: pnpm install --frozen-lockfile --ignore-workspace
+      - name: Verify packaged evidence, types, API tests and build
+        run: pnpm check
+      - name: Verify real browser journey and server restart
+        run: pnpm test:e2e
+      - name: Capture updated review screens
+        run: pnpm shots
+      - name: Preserve updated screenshots and review receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: den-011-review-${{ github.event.pull_request.head.sha }}
+          path: den/docs/receipts/den-01/
+          retention-days: 7
+          if-no-files-found: error

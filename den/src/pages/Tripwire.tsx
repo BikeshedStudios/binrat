@@ -291,7 +291,7 @@ export function Tripwire() {
                   <span className="figure figure--small">{number(replay.replay.baseline.priorLaunchCount + replay.replay.delta.priorLaunchCount)}</span>
                   <span className="mono acid" style={{ marginLeft: "auto", fontSize: 13 }}>
                     {replay.replay.delta.priorLaunchCount >= 0 ? "+" : "−"}
-                    {number(Math.abs(replay.replay.delta.priorLaunchCount))} LAUNCHES
+                    {number(Math.abs(replay.replay.delta.priorLaunchCount))} REPORTED COUNT
                   </span>
                   <span className="mono muted" style={{ flexBasis: "100%", fontSize: 11 }}>
                     {number(replay.replay.delta.checkpointBlocks)} blocks and{" "}

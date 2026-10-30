@@ -277,7 +277,7 @@ export function ReceiptBlock({
         </button>
         {state === "ok" && (
           <span className={dark ? "verified verified--dark" : "verified"}>
-            <IconCheck size={12} /> VERIFIED · RECOMPUTED HERE
+            <IconCheck size={12} /> DIGEST MATCH · RECOMPUTED HERE
           </span>
         )}
         {state === "bad" && (
@@ -296,7 +296,7 @@ export function ReceiptBlock({
           className={dark ? "mono muted" : "mono"}
           style={{ cursor: "pointer", fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase" }}
         >
-          {defaultOpen ? "Hide" : "Show"} the signed payload ({Object.keys(receipt.payload).length} fields)
+          {defaultOpen ? "Hide" : "Show"} the SHA-256 payload ({Object.keys(receipt.payload).length} fields)
         </summary>
         <pre
           className="mono-code"

@@ -57,6 +57,16 @@ test("the whole FIND → EMPLOY → LEAVE → RETURN loop works over HTTP-shaped
   assert.equal(employBody.run.scan.recordsScanned, 120);
   assert.match(employBody.receipt.digest, /^[0-9a-f]{64}$/);
 
+  const ownRun = await call("GET", `/api/runs/${employBody.run.id}`);
+  assert.equal(ownRun.status, 200);
+  assert.equal((ownRun.body as any).run.status, "COMPLETE");
+  const otherRun = await call("GET", `/api/runs/${employBody.run.id}`, undefined, { "x-den-session": "other-session-99" });
+  assert.equal(otherRun.status, 404);
+  assert.equal((otherRun.body as any).error.code, "RUN_NOT_FOUND");
+  const anonymousRun = await call("GET", `/api/runs/${employBody.run.id}`, undefined, {});
+  assert.equal(anonymousRun.status, 400);
+  assert.equal((anonymousRun.body as any).error.code, "SESSION_REQUIRED");
+
   const receipt = await call("GET", `/api/receipts/${employBody.receipt.id}`);
   const receiptBody = receipt.body as any;
   assert.equal(receiptBody.verified, true);

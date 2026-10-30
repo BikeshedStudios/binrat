@@ -129,7 +129,7 @@ try {
   // verify the receipt inside the browser
   const verifyButtons = page.getByRole("button", { name: /VERIFY IN THIS BROWSER/i });
   await verifyButtons.first().click();
-  await page.waitForSelector("text=VERIFIED · RECOMPUTED HERE", { timeout: 10_000 });
+  await page.waitForSelector("text=DIGEST MATCH · RECOMPUTED HERE", { timeout: 10_000 });
   results.flows.push({ id: "employ", status: "PASS", receiptVerifiedInBrowser: true });
   await shoot(page, "flow-employ-verified-1440x900", { settle: 150 });
   await page.getByRole("button", { name: /CLOSE/i }).first().click();
@@ -137,7 +137,7 @@ try {
   // ---- journey: leave a tripwire ----------------------------------------------
   await page.getByRole("button", { name: /LEAVE A TRIPWIRE/i }).first().click();
   await page.waitForSelector('input[placeholder*="565 prior"]', { timeout: 5000 });
-  await page.fill('input[placeholder*="565 prior"]', "the address that came back with 1,042 more launches");
+  await page.fill('input[placeholder*="565 prior"]', "the reported prior-launch count changed by 1,042");
   await page.getByRole("button", { name: /PIN THE FILE/i }).click();
   await page.waitForSelector("text=PINNED", { timeout: 8000 }).catch(() => {});
   await page.goto(`${BASE}/tripwire`, { waitUntil: "networkidle" });

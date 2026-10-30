@@ -347,8 +347,9 @@ export function createDenApp(options: {
 
     if (path.startsWith("/api/runs/") && method === "GET") {
       const id = path.slice("/api/runs/".length);
+      const session = requireSession(request);
       const run = store.getRun(id);
-      if (!run) throw new ApiError(404, "RUN_NOT_FOUND", "No such run.");
+      if (!run || run.sessionId !== session) throw new ApiError(404, "RUN_NOT_FOUND", "No such run.");
       return json(200, JSON.parse(run.payload));
     }
 
