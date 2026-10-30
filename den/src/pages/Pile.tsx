@@ -169,7 +169,7 @@ export function Pile() {
             SHOW {number(Math.min(PAGE_SIZE, data.rows.length - shown))} MORE · {number(shown)} OF {number(data.matched)}
           </button>
         </div>
-      )
+      )}
 
       <div style={{ marginTop: 26 }}>
         <RatWire page="pile" />
