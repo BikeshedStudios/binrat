@@ -12,8 +12,8 @@ pnpm build && pnpm start            # → http://127.0.0.1:4178
 
 For hot-reload development: `pnpm dev` (API `:4178`, UI `:5178`).
 
-Reset the board at any time with `pnpm reset` (local pins, runs, receipts and work orders only;
-evidence is untouched). To reproduce the review screenshots: `pnpm shots` → `docs/receipts/den-01/`.
+Reset the board with `Ctrl-C`, then `pnpm reset`, then `pnpm start` (local pins, runs, receipts and
+work orders only; evidence is untouched). To reproduce the review screenshots: `pnpm shots` → `docs/receipts/den-01/`.
 
 ## 1. The 10-second test (desktop, 1440)
 

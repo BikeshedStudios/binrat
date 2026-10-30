@@ -25,10 +25,12 @@ Requirements: Node ≥ 24 (`node:sqlite`), Chrome/Chromium `playwright-core` for
 `pnpm install --ignore-workspace` is required because the parent repository is a pnpm workspace with
 its own lockfile; the experiment deliberately does not join it.
 
-Reset local state (pins, runs, receipts, work orders):
+Reset local state (pins, runs, receipts, work orders) — stop the preview first, then restart it:
 
 ```bash
+# Ctrl-C the running preview
 pnpm reset
+pnpm start
 ```
 
 ## The loop
