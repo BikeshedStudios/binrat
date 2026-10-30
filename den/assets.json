@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "binrat.den.assets/1",
+  "note": "Every runtime asset is either an owner asset copied from the BINRAT worktree (read only) or a documented re-encode of one. No generated or stock art is used.",
+  "assets": [
+    {
+      "id": "den-cam",
+      "path": "public/assets/art/den-cam.webp",
+      "kind": "pixel art",
+      "origin": "owner asset web/assets/crew/rat-zero.jpg",
+      "originSha256": "17128743857b581ea051a28fc9337ae9fd1d677c2b6f3db74b7fc0398df92474",
+      "sha256": "0ab6440895675990763f41c09699461150f5018b9ae36f660819c7d4d5347fb0",
+      "change": "Cropped to 5:4 from the full width and re-encoded to WebP q84 (1000x800).",
+      "rights": "Owner-supplied BINRAT art in the repository. Presentation only, never evidence."
+    },
+    {
+      "id": "tripwire-rat",
+      "path": "public/assets/art/tripwire-rat.webp",
+      "kind": "pixel art",
+      "origin": "owner asset web/assets/crew/tripwire.png",
+      "originSha256": "358edc57dbb1eebd6a5a9c67bb6dff238682ee0cddd1f04ff84aa32d61a884b3",
+      "sha256": "0f3d52fbbefb384934d23761569a2d99de3e0aeeb5dcf0a270b0edc201abe2ab",
+      "change": "Scaled to 900x900 and re-encoded to WebP q82 on its original black field.",
+      "rights": "Owner-supplied BINRAT art in the repository. Presentation only, never evidence."
+    },
+    {
+      "id": "geist-sans",
+      "path": "public/assets/fonts/geist-sans.woff2",
+      "kind": "typeface",
+      "origin": "web/assets/fonts/geist-sans.woff2",
+      "sha256": "2ffebe993e969069a9789d15164b7715d42491b5835516c5e3b935d5f81b05f1",
+      "rights": "Geist, SIL Open Font License 1.1 (public/assets/fonts/GEIST-OFL.txt)."
+    },
+    {
+      "id": "geist-mono",
+      "path": "public/assets/fonts/geist-mono.woff2",
+      "kind": "typeface",
+      "origin": "web/assets/fonts/geist-mono.woff2",
+      "sha256": "afaacc4c5fbba89d2ebf7a02dc4070208540874592a5504d57175782fe893101",
+      "rights": "Geist Mono, SIL Open Font License 1.1 (public/assets/fonts/GEIST-OFL.txt)."
+    },
+    {
+      "id": "silkscreen",
+      "path": "public/assets/fonts/silkscreen-700.woff2",
+      "kind": "typeface",
+      "origin": "web/assets/fonts/silkscreen-700.woff2",
+      "sha256": "5741b7f01a127f40ed70281fa2f686e8fc2cfe241930a120e4d1a1cebe78f995",
+      "rights": "Silkscreen, SIL Open Font License 1.1 (public/assets/fonts/SILKSCREEN-OFL.txt)."
+    },
+    {
+      "id": "press-start",
+      "path": "public/assets/fonts/pressstart2p-400.woff2",
+      "kind": "typeface",
+      "origin": "web/assets/fonts/pressstart2p-400.woff2",
+      "sha256": "afec86997fdaf54af1f59358fa2c1e2a0f1d04146edad18e5cd141d0384a7548",
+      "rights": "Press Start 2P, SIL Open Font License 1.1 (public/assets/fonts/PRESSSTART2P-OFL.txt)."
+    },
+    {
+      "id": "favicon",
+      "path": "public/favicon.png",
+      "kind": "icon",
+      "origin": "web/assets/favicon.png",
+      "originSha256": "cce2f404d991febe03e1d94f9736851c8e8055ed505815a80e7fe6ce486353f9",
+      "sha256": "cce2f404d991febe03e1d94f9736851c8e8055ed505815a80e7fe6ce486353f9",
+      "rights": "Owner-supplied BINRAT asset in the repository."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "binrat-den",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "BINRAT: THE DEN \u2014 an isolated, recorded-evidence successor experiment. No live feed, no deploy, no spend.",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "vite build",
+    "start": "tsx server/index.ts",
+    "preview": "pnpm build && pnpm start",
+    "typecheck": "tsc --noEmit",
+    "verify:evidence": "node --import tsx scripts/verify-evidence.mjs",
+    "test": "node --import tsx --test tests/unit/*.test.ts tests/api/*.test.ts",
+    "test:e2e": "vite build && node --import tsx --test tests/e2e/*.test.ts",
+    "check": "pnpm verify:evidence && pnpm typecheck && pnpm test && pnpm build",
+    "shots": "node scripts/screenshots.mjs",
+    "reset": "node scripts/reset-state.mjs"
+  },
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.6.2",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.1",
+    "@vitejs/plugin-react": "5.0.4",
+    "playwright-core": "1.56.1",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vite": "7.1.9"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

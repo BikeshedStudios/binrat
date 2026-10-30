@@ -1,0 +1,245 @@
+{
+  "startedAt": "2026-10-30T22:15:03.326Z",
+  "base": "http://127.0.0.1:4179",
+  "routes": [
+    {
+      "name": "home-1440x900",
+      "overflow": 0,
+      "height": 2243,
+      "h1": "THE RATREMEMBERS.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "pile-1440x900",
+      "overflow": 0,
+      "height": 6683,
+      "h1": "THE PILE.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "case-1440x900",
+      "overflow": 0,
+      "height": 2393,
+      "h1": "The same address came back.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "tripwire-empty-1440x900",
+      "overflow": 0,
+      "height": 1020,
+      "h1": "THE TRIPWIRE.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "front-desk-1440x900",
+      "overflow": 0,
+      "height": 1248,
+      "h1": "THE FRONT DESK.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "manual-1440x900",
+      "overflow": 0,
+      "height": 3109,
+      "h1": "FIELD MANUAL.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "home-1440x900-full",
+      "overflow": 0,
+      "height": 2272,
+      "h1": "THE RATREMEMBERS.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "case-1440x900-full",
+      "overflow": 0,
+      "height": 2393,
+      "h1": "The same address came back.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "pile-1440x900-full",
+      "overflow": 0,
+      "height": 6683,
+      "h1": "THE PILE.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "flow-employ-complete-1440x900",
+      "overflow": 0,
+      "height": 2393,
+      "h1": "The same address came back.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "flow-employ-verified-1440x900",
+      "overflow": 0,
+      "height": 2393,
+      "h1": "The same address came back.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "flow-tripwire-pinned-1440x900",
+      "overflow": 0,
+      "height": 1115,
+      "h1": "THE TRIPWIRE.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "flow-tripwire-pinned-1440x900-full",
+      "overflow": 0,
+      "height": 1115,
+      "h1": "THE TRIPWIRE.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "flow-replay-1440x900",
+      "overflow": 0,
+      "height": 1142,
+      "h1": "THE TRIPWIRE.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "flow-work-order-1440x900",
+      "overflow": 0,
+      "height": 1306,
+      "h1": "THE FRONT DESK.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "flow-den-return-1440x900",
+      "overflow": 0,
+      "height": 2277,
+      "h1": "THE RATREMEMBERS.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "flow-den-return-1440x900-full",
+      "overflow": 0,
+      "height": 2277,
+      "h1": "THE RATREMEMBERS.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "home-390x844",
+      "overflow": 0,
+      "height": 4258,
+      "h1": "THE RATREMEMBERS.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "pile-390x844",
+      "overflow": 0,
+      "height": 18255,
+      "h1": "THE PILE.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "case-390x844",
+      "overflow": 0,
+      "height": 4611,
+      "h1": "The same address came back.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "tripwire-390x844",
+      "overflow": 0,
+      "height": 1598,
+      "h1": "THE TRIPWIRE.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "front-desk-390x844",
+      "overflow": 0,
+      "height": 2466,
+      "h1": "THE FRONT DESK.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "manual-390x844",
+      "overflow": 0,
+      "height": 5016,
+      "h1": "FIELD MANUAL.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "home-390x844-full",
+      "overflow": 0,
+      "height": 4305,
+      "h1": "THE RATREMEMBERS.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "case-390x844-full",
+      "overflow": 0,
+      "height": 4611,
+      "h1": "The same address came back.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "flow-employ-complete-390x844",
+      "overflow": 0,
+      "height": 4611,
+      "h1": "The same address came back.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "home-1024x768",
+      "overflow": 0,
+      "height": 3185,
+      "h1": "THE RATREMEMBERS.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "home-430x932",
+      "overflow": 0,
+      "height": 4173,
+      "h1": "THE RATREMEMBERS.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "home-320x800",
+      "overflow": 0,
+      "height": 4604,
+      "h1": "THE RATREMEMBERS.",
+      "horizontalScrollbar": false
+    },
+    {
+      "name": "home-768x1024",
+      "overflow": 0,
+      "height": 3662,
+      "h1": "THE RATREMEMBERS.",
+      "horizontalScrollbar": false
+    }
+  ],
+  "flows": [
+    {
+      "id": "employ",
+      "status": "PASS",
+      "receiptVerifiedInBrowser": true
+    },
+    {
+      "id": "replay",
+      "status": "PASS",
+      "verdict": "RECORDED AGAIN · 1 LATER LAUNCH FROM THE SAME ADDRESS IN 1 WINDOW"
+    },
+    {
+      "id": "work-order",
+      "status": "PASS"
+    }
+  ],
+  "consoleErrors": [],
+  "a11y": {
+    "issues": [],
+    "pass": true
+  },
+  "finishedAt": "2026-10-30T22:15:38.099Z",
+  "server": [
+    "BINRAT: THE DEN  ·  recorded replay  ·  6 captures / 120 records",
+    "  evidence digests re-verified: true",
+    "  local preview: http://127.0.0.1:4179",
+    "  store: /home/swirky/Documents/deepseek-harness/default-workspace/binrat-den-01/den/var/shots.sqlite",
+    "  live collector: NOT RUN · network at runtime: 0 calls · $BINRAT: NOT LAUNCHED"
+  ]
+}
