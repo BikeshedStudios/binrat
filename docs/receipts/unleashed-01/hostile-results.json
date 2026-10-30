@@ -1,0 +1,28 @@
+{
+  "schema": "binrat.unleashed.hostile/1",
+  "at": "2026-10-30T16:12:18.570Z",
+  "attacks": [
+    {
+      "attack": "Failed save must not confirm employment or create memory",
+      "result": "PASS"
+    },
+    {
+      "attack": "User field note rendered as HTML/script",
+      "result": "PASS — literal text"
+    },
+    {
+      "attack": "Late background read reverses confirmed cancellation",
+      "result": "PASS"
+    },
+    {
+      "attack": "Tampered persisted receipt, including a recomputed hash",
+      "result": "PASS — no inferred match; note retained"
+    },
+    {
+      "attack": "Cancel pending replay then wait past its due time",
+      "result": "PASS — canceled after reload; no receipt"
+    }
+  ],
+  "errors": [],
+  "verdict": "PASS"
+}

@@ -1,0 +1,24 @@
+✔ real pinned publication validates and expires to stale, never fresh-by-age (0.694506ms)
+✔ a changed recorded source fails closed before it can display as evidence (4.682878ms)
+✔ replay finds only a later recorded launch with the same reported creator (0.861601ms)
+✔ newest Case is quiet within recording without inventing future events (0.196057ms)
+✔ employ is idempotent and enforces five active slots independently per session (34.386462ms)
+✔ session ids supplied by clients never create a chosen identity (17.124782ms)
+✔ cancel stops a pending replay; no receipt is manufactured afterward (19.414196ms)
+✔ process restart resumes due replay exactly once; rerun preserves deterministic evidence (28.271082ms)
+✔ prepared memory and safe notes persist across database reopen (23.107673ms)
+✔ source loss never prevents cancellation or reading previously saved memory (27.857506ms)
+✔ tampered stored replay cannot become a displayed match, while the Case remains cancelable (24.883104ms)
+✔ economic wedge stores only bounded local interest, without changing capacity (32.153352ms)
+✔ API requires same-origin JSON and isolates assignments by opaque HttpOnly session (90.10268ms)
+✔ malformed, oversized and unknown requests fail without creating an assignment (34.291223ms)
+✔ corrupt or missing source serves explicit UNAVAILABLE and a functioning empty den (27.023441ms)
+✔ HTTP service restart retains the desk and finishes a due assignment on startup (41.436351ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 484.674762

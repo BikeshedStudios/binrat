@@ -1,0 +1,520 @@
+{
+  "branch": "experiment/binrat-unleashed-01-20261030",
+  "prBase": "integration/binrat-a1-3-visual-gate",
+  "repositoryPublic": true,
+  "defaultWorkflows": [
+    {
+      "path": ".github/workflows/binrat-cloudflare-d1-encrypted-backup-20261011.yml",
+      "gitBlob": "3589e0df3001b051e648daffc7d4a48f777b3838",
+      "sha256": "3889b17e00b001c478b025235858cb376d8faf46ce28ae8e401b46ef28601f10",
+      "events": {
+        "push": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            ".github/workflows/binrat-cloudflare-d1-encrypted-backup-20261011.yml"
+          ]
+        },
+        "workflow_dispatch": null
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "workflowRunOrPRTarget": false
+    },
+    {
+      "path": ".github/workflows/binrat-cloudflare-emergency-freeze-20261011.yml",
+      "gitBlob": "d13b271d55b237c7b98716cdbc2442bae15010e8",
+      "sha256": "feb0f2d764db96461fc8ee2fa9dc276041ccb281e12024d1c6c7547afb62a96c",
+      "events": {
+        "push": {
+          "branches": [
+            "main"
+          ],
+          "paths": [
+            ".github/workflows/binrat-cloudflare-emergency-freeze-20261011.yml"
+          ]
+        },
+        "workflow_dispatch": null
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "workflowRunOrPRTarget": false
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "gitBlob": "b515847adb134a34e1769c8807217863509dc10b",
+      "sha256": "b50fcd9f07bfa0d463ab3d8f5a6239af2da525acb4c876349069167ca53f12f3",
+      "events": {
+        "pull_request": {
+          "types": [
+            "opened",
+            "synchronize",
+            "reopened",
+            "edited",
+            "ready_for_review"
+          ]
+        },
+        "push": {
+          "branches": [
+            "main"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": false,
+      "workflowRunOrPRTarget": false
+    },
+    {
+      "path": ".github/workflows/cloudflare-production-readonly-inspect.yml",
+      "gitBlob": "cb6b9b7c3d2235617fe1a52101d1e0c0d5679349",
+      "sha256": "f2e5020aac853119ac34180650862a48532389b7c646569b6aafe902b2d39002",
+      "events": {
+        "workflow_dispatch": {
+          "inputs": {
+            "operation": {
+              "description": "Bounded read-only inspection selector",
+              "required": false,
+              "default": "production-preflight",
+              "type": "choice",
+              "options": [
+                "production-preflight",
+                "d1-schema",
+                "worker-config",
+                "all"
+              ]
+            }
+          }
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "workflowRunOrPRTarget": false
+    },
+    {
+      "path": ".github/workflows/controlled-rat-private-rollout.yml",
+      "gitBlob": "28ad5aebb782c095eaadb938083af98761575f8b",
+      "sha256": "136cdbc623d2a91d97aadc84b92628d5eb207d758289ff3112366d2197f425d0",
+      "events": {
+        "push": {
+          "branches": [
+            "feat/binrat-robinhood-live-rat-v1"
+          ]
+        },
+        "workflow_dispatch": {
+          "inputs": {
+            "activation_mode": {
+              "description": "Private rollout mode. UI V2 can be dispatched only from its reviewed branch.",
+              "required": true,
+              "default": "autonomous-text-private",
+              "type": "choice",
+              "options": [
+                "autonomous-text-private",
+                "telegram-ui-v2-private"
+              ]
+            },
+            "confirmation": {
+              "description": "Required exactly for telegram-ui-v2-private: ENABLE_PRIVATE_TELEGRAM_UI_V2",
+              "required": false,
+              "type": "string"
+            }
+          }
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "workflowRunOrPRTarget": false
+    },
+    {
+      "path": ".github/workflows/public-read-plane-stability-candidate.yml",
+      "gitBlob": "d18af718e0a17bf6bcb1bcc691230f7d09e79b65",
+      "sha256": "63a6652301e25969283351dc8129565497db626842afdae70705e702c3c91dcf",
+      "events": {
+        "workflow_dispatch": {}
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "workflowRunOrPRTarget": false
+    }
+  ],
+  "branchWorkflows": [
+    {
+      "path": ".github/workflows/binrat-unleashed-offline.yml",
+      "sha256": "f08d518aa2dbcccf378a1553289fefb4b259e051760ca06145151966d1330c54",
+      "events": {
+        "pull_request": {
+          "paths": [
+            "unleashed/**",
+            ".github/workflows/binrat-unleashed-offline.yml"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": false,
+      "jobConditionLines": [
+        "if: github.head_ref == 'experiment/binrat-unleashed-01-20261030'",
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/case-evidence-ui.yml",
+      "sha256": "91367898c808caa388e1770d99a677f2e81248c6527c79041978b3611544bb30",
+      "events": {
+        "pull_request": {
+          "paths": [
+            "web-v2/src/PonsCasePreview.tsx",
+            "web-v2/src/historicalCase.ts",
+            "web-v2/src/frontdoor-discovery.css",
+            "web-v2/checks/*case*",
+            "src/public/caseEvidence.ts",
+            "test/support/caseProductionCapture.ts",
+            ".github/workflows/case-evidence-ui.yml"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": false,
+      "jobConditionLines": [
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/case-evidence.yml",
+      "sha256": "f3b026f956779e01517308203c1d34b2e876376166dae1da94bd11d7915da486",
+      "events": {
+        "pull_request": {
+          "paths": [
+            "src/public/caseEvidence.ts",
+            "src/cloudflare/publicCaseEvidence.ts",
+            "test/caseEvidence.test.ts",
+            ".github/workflows/case-evidence.yml"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": false,
+      "jobConditionLines": []
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "12755240e4933520ff9266d13d19d3e0667cb51d89f0d2da3621fb0ea93d65b7",
+      "events": {
+        "pull_request": null,
+        "push": {
+          "branches": [
+            "main"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": false,
+      "jobConditionLines": [
+        "if: ${{ github.event_name == 'pull_request' && github.head_ref == 'feat/binrat-pons-case-preview-v1' }}",
+        "if: always()",
+        "if: ${{ github.event_name == 'pull_request' && (startsWith(github.head_ref, 'feat/binrat-pons-') || startsWith(github.head_ref, 'feat/binrat-exact-pons-') || startsWith(github.head_ref, 'feat/binrat-working-rat-') || startsWith(github.head_ref, 'integration/binrat-pons-') || github.head_ref == 'integration/binrat-launch-night-v1') }}",
+        "if: ${{ github.event_name == 'pull_request' && github.head_ref == 'feat/binrat-rat-radar-v0' }}",
+        "if: ${{ github.event_name == 'pull_request' && github.head_ref == 'feat/binrat-rat-radar-v0' }}",
+        "if: ${{ github.event_name == 'pull_request' && (github.head_ref == 'feat/binrat-degen-frontdoor-v1' || github.head_ref == 'fix/binrat-read-plane-frontend-resilience-v1' || github.head_ref == 'feat/binrat-frontdoor-journey-v1' || github.head_ref == 'integration/binrat-public-truth-launch-v1' || github.head_ref == 'integration/binrat-launch-night-v1') }}",
+        "if: always()",
+        "if: ${{ github.event_name == 'pull_request' && (github.head_ref == 'fix/binrat-v2-evidence-integrity-pr1' || startsWith(github.head_ref, 'feat/binrat-frontend-')) }}",
+        "if: ${{ github.head_ref == 'feat/binrat-frontend-live-integration-pr3' }}",
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/cloudflare-candidate-deploy.yml",
+      "sha256": "d82dd1428875b4675e495997bb1020490ea370e480abdf1fff52c49fa35e6d5d",
+      "events": {
+        "push": {
+          "branches": [
+            "ops/cloudflare-deploy-v0"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: ${{ contains(github.event.head_commit.message, '[deploy-cf-candidate]') }}",
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/cloudflare-dry-run.yml",
+      "sha256": "e95c184c7815c99bfdcd1e546f3d57bbeb64aba142c40459fea82c03b03dbe21",
+      "events": {
+        "pull_request": {
+          "paths": [
+            "src/cloudflare/**",
+            "cloudflare/**",
+            "web/**",
+            "package.json",
+            "pnpm-lock.yaml",
+            ".github/workflows/cloudflare-dry-run.yml"
+          ]
+        },
+        "workflow_dispatch": null
+      },
+      "syntax": "VALID",
+      "secretReferences": false,
+      "jobConditionLines": []
+    },
+    {
+      "path": ".github/workflows/controlled-rat-private-rollout.yml",
+      "sha256": "c6b9cb53c767fb07c4a9d077ca1967ad7fff4708432d775bc6fe32ec4f795dad",
+      "events": {
+        "push": {
+          "branches": [
+            "feat/binrat-robinhood-live-rat-v1"
+          ]
+        },
+        "workflow_dispatch": {
+          "inputs": {
+            "activation_mode": {
+              "description": "Private rollout mode. UI V2 can be dispatched only from its reviewed branch.",
+              "required": true,
+              "default": "autonomous-text-private",
+              "type": "choice",
+              "options": [
+                "autonomous-text-private",
+                "telegram-ui-v2-private"
+              ]
+            },
+            "confirmation": {
+              "description": "Required exactly for telegram-ui-v2-private: ENABLE_PRIVATE_TELEGRAM_UI_V2",
+              "required": false,
+              "type": "string"
+            },
+            "reviewed_sha": {
+              "description": "Exact 40-character commit SHA reviewed for this deployment",
+              "required": false,
+              "type": "string"
+            }
+          }
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: ${{ contains(github.event.head_commit.message, '[deploy-controlled-rat]') || github.event_name == 'workflow_dispatch' }}",
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/pons-outcome-narrow-live-probe.yml",
+      "sha256": "91632dbeef31ce8e7fcc522c32266d4b9f2c428424919c8977c96f3086718f35",
+      "events": {
+        "push": {
+          "branches": [
+            "ops/binrat-o2-production-rollout-v1"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/pons-outcome-production-rollout.yml",
+      "sha256": "e1324e293f235c734017cdbdeb0159258902b7415733ce3cab9cd94a864f5d45",
+      "events": {
+        "push": {
+          "branches": [
+            "ops/binrat-o2-production-rollout-v1"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: ${{ contains(github.event.head_commit.message, '[deploy-o2-production]') }}",
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/public-read-plane-stability-candidate.yml",
+      "sha256": "d6fe9e727b2338c946d904e79eb745ee0debc26d34f58509f6353e427be5083c",
+      "events": {
+        "workflow_dispatch": {
+          "inputs": {
+            "reviewed_sha": {
+              "description": "Exact reviewed candidate Git SHA (40 lowercase hex characters)",
+              "required": true,
+              "type": "string"
+            },
+            "deploy_authorized": {
+              "description": "Separate owner authorization to provision and deploy this candidate",
+              "required": true,
+              "default": false,
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: ${{ inputs.deploy_authorized == true }}",
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/rat-ai-cost-gateway-gate.yml",
+      "sha256": "d76b2998e0371a060f3bd1f08dcfc40f0d971ba8777ab12382b0ffc8c6032997",
+      "events": {
+        "push": {
+          "branches": [
+            "feat/binrat-rat-conversation-free-ai-v1"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: ${{ contains(github.event.head_commit.message, '[gate-rat-ai]') }}"
+      ]
+    },
+    {
+      "path": ".github/workflows/rat-ai-free-plan-check.yml",
+      "sha256": "2817d2228d0db4720743a3865e68f0c370615669eb95ab1dcce590f3ee8d79be",
+      "events": {
+        "push": {
+          "branches": [
+            "feat/binrat-rat-conversation-free-ai-v1"
+          ]
+        },
+        "workflow_dispatch": null
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: ${{ contains(github.event.head_commit.message, '[check-rat-ai-plan]') || github.event_name == 'workflow_dispatch' }}"
+      ]
+    },
+    {
+      "path": ".github/workflows/rat-ai-real-model-smoke.yml",
+      "sha256": "1f5c49e67a606717433089ba9adf194838f3e6328462400fa29987fdcde86333",
+      "events": {
+        "push": {
+          "branches": [
+            "feat/binrat-rat-conversation-free-ai-v1"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: ${{ contains(github.event.head_commit.message, '[smoke-rat-ai]') }}"
+      ]
+    },
+    {
+      "path": ".github/workflows/rat-conversation-candidate-deploy.yml",
+      "sha256": "4cb31fffba6d523fa933d8c189bc94760f19ec992b5fa8d3cea911d53f6aa53e",
+      "events": {
+        "push": {
+          "branches": [
+            "feat/binrat-rat-conversation-free-ai-v1"
+          ]
+        },
+        "workflow_dispatch": null
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: ${{ contains(github.event.head_commit.message, '[deploy-rat-candidate]') || github.event_name == 'workflow_dispatch' }}",
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/rat-conversation-live-deploy.yml",
+      "sha256": "1ac639917c9bb8b4a9b1f2021d4a3c564adadd851e47138d7852e065456e79c6",
+      "events": {
+        "push": {
+          "branches": [
+            "feat/binrat-rat-conversation-free-ai-v1"
+          ]
+        },
+        "workflow_dispatch": {
+          "inputs": {
+            "confirm_live": {
+              "description": "Type DEPLOY_BOT for normal rollout, or DEPLOY_BOT_AI for the 30-call/day AI trial",
+              "required": true,
+              "type": "string"
+            }
+          }
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: ${{ contains(github.event.head_commit.message, '[deploy-rat-live]') || contains(github.event.head_commit.message, '[deploy-rat-ai-trial]') || (github.event_name == 'workflow_dispatch' && (inputs.confirm_live == 'DEPLOY_BOT' || inputs.confirm_live == 'DEPLOY_BOT_AI')) }}",
+        "if: env.RAT_AI_TRIAL_APPROVED == 'true'",
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/rat-radar-candidate-deploy.yml",
+      "sha256": "2d289ab7cac0525e955ecc25b849208fe4be43ce8a8b9733bb0417ae6f6698c3",
+      "events": {
+        "push": {
+          "branches": [
+            "feat/binrat-rat-radar-v0"
+          ],
+          "paths": [
+            "src/**",
+            "cloudflare/**",
+            "web/**",
+            "docs/CAPABILITY_MANIFEST_V0.json",
+            "scripts/deploy-rat-radar-candidate.py",
+            ".github/workflows/rat-radar-candidate-deploy.yml",
+            "package.json",
+            "pnpm-lock.yaml"
+          ]
+        },
+        "workflow_dispatch": null
+      },
+      "syntax": "PREEXISTING_BODY_YAML_ERROR; event header inspected separately",
+      "secretReferences": true,
+      "jobConditionLines": [
+        "if: always()"
+      ]
+    },
+    {
+      "path": ".github/workflows/sprint-a1-1.yml",
+      "sha256": "2b1b0615d24ba28fae7eb66f45acdbbd0686e89a67de6e87be28203f41138158",
+      "events": {
+        "pull_request": {
+          "paths": [
+            "web-v2/src/PonsCasePreview.tsx",
+            "web-v2/src/pons-readonly-preview.*",
+            "web-v2/src/frontdoor-discovery.css",
+            "web-v2/checks/*historical*",
+            "web-v2/checks/sprint-a1-1-browser.cjs",
+            ".github/workflows/sprint-a1-1.yml"
+          ]
+        }
+      },
+      "syntax": "VALID",
+      "secretReferences": false,
+      "jobConditionLines": [
+        "if: github.head_ref == 'feat/binrat-sprint-a1-frontdoor-discovery'",
+        "if: always()"
+      ]
+    }
+  ],
+  "verdict": "SAFE_FOR_EXPERIMENT_PUSH_AND_DRAFT_PR",
+  "rationale": [
+    "No workflow_run or pull_request_target in default or candidate workflow set.",
+    "Secret-consuming push workflows list exact other branches; experiment branch matches none.",
+    "Privileged PR jobs in ci.yml require exact feat/binrat-rat-radar-v0 and do not match.",
+    "Remaining conditional PR jobs target unrelated branch prefixes or paths.",
+    "Default check installs/builds/tests existing source; no deployment/secret inputs.",
+    "New workflow uses contents:read, persist-credentials:false, Node 24, pinned native Playwright, disposable local SQLite and standard ubuntu-latest; no secrets or custom runner.",
+    "Repository is public. Standard hosted CI and free npm packages only. No provider/RPC/model calls, paid service, dispatch, deployment or notification."
+  ],
+  "checkedAt": "2026-10-30T16:18:21.494155+00:00",
+  "defaultHead": "3a5f53b7b5aca19c7c7ac4b5499453f224c92d96",
+  "integrationHead": "160ab9c4fbb2f9cebd4a45cc20f5e75d85f57302",
+  "integrationDelta": "Documentation-only; no code/workflow/dependency/evidence changes from selected baseline."
+}

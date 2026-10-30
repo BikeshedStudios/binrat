@@ -1,0 +1,40 @@
+name: BINRAT Unleashed — offline product proof
+
+on:
+  pull_request:
+    paths:
+      - "unleashed/**"
+      - ".github/workflows/binrat-unleashed-offline.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  local-product:
+    if: github.head_ref == 'experiment/binrat-unleashed-01-20261030'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Source-bound evidence, local persistence, cancellation and API boundaries
+        run: node --test unleashed/test/*.test.mjs
+      - name: Install pinned native browser verification tools
+        run: |
+          npm install --prefix unleashed/.local/browser-tools --no-save --no-package-lock --ignore-scripts playwright@1.56.1 axe-core@4.13.0
+          node unleashed/.local/browser-tools/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Actual desktop and mobile journeys against disposable local SQLite
+        run: |
+          node unleashed/checks/journey.cjs
+          node unleashed/checks/hostile.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: binrat-unleashed-${{ github.event.pull_request.head.sha }}
+          path: docs/receipts/unleashed-01/
+          retention-days: 14

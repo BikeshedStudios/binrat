@@ -1,0 +1,48 @@
+{
+  "node": "24.20.0",
+  "productBackend": {
+    "command": "node --test unleashed/test/*.test.mjs",
+    "pass": 16,
+    "fail": 0
+  },
+  "inheritedBaseline": {
+    "command": "pnpm check",
+    "pass": 586,
+    "fail": 0,
+    "includes": [
+      "build",
+      "test",
+      "web:check"
+    ]
+  },
+  "inheritedV2": {
+    "command": "pnpm --dir web-v2 check",
+    "verdict": "PASS"
+  },
+  "browser": {
+    "command": "node unleashed/checks/journey.cjs",
+    "verdict": "PASS",
+    "widths": [
+      1440,
+      1024,
+      768,
+      430,
+      390,
+      360,
+      320
+    ],
+    "completeJourneys": 7,
+    "axePages": 11,
+    "axeViolations": 0,
+    "externalProductRequests": 0,
+    "pageErrors": 0
+  },
+  "hostileRereview": {
+    "command": "node unleashed/checks/hostile.cjs",
+    "verdict": "PASS",
+    "attacks": 5,
+    "criticalUnresolved": 0,
+    "highUnresolved": 0
+  },
+  "originals": "ORIGINALS_PRESERVED"
+}
