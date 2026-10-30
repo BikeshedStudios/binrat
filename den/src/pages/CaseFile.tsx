@@ -246,7 +246,8 @@ export function CaseFile({ id }: { id: string }) {
                 →
               </span>
               <span className="to">{number(movement.to)}</span>
-              <span className="delta">{signed(movement.delta)} launches on the record</span>
+              <span className="delta">{signed(movement.delta)} reported count change</span>
+              <small className="mono" style={{ flexBasis: "100%", fontSize: 11, lineHeight: 1.5 }}>Not proof that these launches occurred between captures; indexing or backfill can change a cumulative count.</small>
             </div>
           )}
 

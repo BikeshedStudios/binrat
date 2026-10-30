@@ -62,4 +62,4 @@ export async function readReceipt(
 }
 
 export const RECEIPT_DIGEST_RULE =
-  "Receipt digest: SHA-256 over canonical JSON (recursively sorted keys, no whitespace) of the receipt payload. The browser recomputes the same rule with WebCrypto on the VERIFY button.";
+  "Receipt digest: SHA-256 over canonical JSON (recursively sorted keys, no whitespace) of the receipt payload. The browser recomputes the same rule with WebCrypto. A digest match does not prove a signature, source authenticity or on-chain consensus.";

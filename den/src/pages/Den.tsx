@@ -57,8 +57,8 @@ export function Den({ den, visit }: { den: DenPayload; visit: VisitInfo }) {
           </h1>
           <p className="hero-lede">
             {number(evidence.captureCount)} recorded windows. <b>{number(evidence.launchCount)} scraps</b>.{" "}
-            <b>No names in any of them</b>. One address came back with{" "}
-            <b>{number(movement?.delta ?? 0)} more launches</b> on its record.
+            <b>No names in any of them</b>. One address's provider-reported prior-launch count was{" "}
+            <b>{number(movement?.delta ?? 0)} higher</b> in a later capture. That is not proof of launches in that interval.
           </p>
           <div className="cta-row">
             <Link to={`/case/${lead.caseId}`} className="btn">
@@ -98,7 +98,7 @@ export function Den({ den, visit }: { den: DenPayload; visit: VisitInfo }) {
                 →
               </span>
               <span className="to">{number(movement.to)}</span>
-              <span className="delta">{signed(movement.delta)} launches</span>
+              <span className="delta">{signed(movement.delta)} reported count</span>
               <span className="movement-caption">
                 Recorded prior-launch count for {lead.deployerShort} · {formatStamp(movement.fromReadAt)} →{" "}
                 {formatStamp(movement.toReadAt)}

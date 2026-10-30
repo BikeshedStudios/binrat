@@ -51,8 +51,7 @@ export function FrontDesk() {
           <Kicker tone="blood">ROOM 04 · EMPLOY</Kicker>
           <h1 className="page-title">THE FRONT DESK.</h1>
           <p className="page-sub">
-            One day a bounded investigation should cost real money. Today it cannot be bought: there is no
-            checkout in this build. What exists is the form, the queue on your machine, and the receipt.
+            Choose the investigation you wish BINRAT could do next. Record an interest-only work order and get a local receipt.
           </p>
         </div>
         <div className="page-count">
@@ -64,8 +63,7 @@ export function FrontDesk() {
       <div className="stamp-banner" role="note">
         <Stamp dark>NO PAYMENT EXISTS</Stamp>
         <p style={{ margin: 0, maxWidth: "62ch" }}>
-          No checkout, no card field, no billing provider, no entitlement, no staking and no token. This
-          desk records <strong>interest</strong> locally and shows you exactly what a run would produce.
+          This local demo collects no payment and starts no investigator job. Your work order stays on this machine.
         </p>
       </div>
 

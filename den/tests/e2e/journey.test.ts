@@ -109,7 +109,7 @@ test("complete desktop + phone journey, durable across a server restart", { time
   await page.getByRole("button", { name: /EMPLOY THE RAT/i }).first().click();
   await page.waitForSelector("text=FILE WRITTEN", { timeout: 20_000 });
   await page.getByRole("button", { name: /VERIFY IN THIS BROWSER/i }).first().click();
-  await page.waitForSelector("text=VERIFIED · RECOMPUTED HERE", { timeout: 10_000 });
+  await page.waitForSelector("text=DIGEST MATCH · RECOMPUTED HERE", { timeout: 10_000 });
   await page.screenshot({ path: join(denRoot, "docs", "receipts", "den-01", "e2e-employ-verified-1440x900.png") });
   await page.getByRole("button", { name: /CLOSE/i }).first().click();
 
@@ -138,7 +138,7 @@ test("complete desktop + phone journey, durable across a server restart", { time
   assert.match(await page.locator(".modal").innerText(), /Recorded prior-launch count/i);
   assert.match(await page.locator(".modal").innerText(), /1,607/);
   await page.getByRole("button", { name: /VERIFY IN THIS BROWSER/i }).first().click();
-  await page.waitForSelector("text=VERIFIED · RECOMPUTED HERE", { timeout: 10_000 });
+  await page.waitForSelector("text=DIGEST MATCH · RECOMPUTED HERE", { timeout: 10_000 });
   await page.screenshot({ path: join(denRoot, "docs", "receipts", "den-01", "e2e-replay-1440x900.png") });
   await page.getByRole("button", { name: /CLOSE/i }).first().click();
 
@@ -155,7 +155,7 @@ test("complete desktop + phone journey, durable across a server restart", { time
   await page.waitForSelector("text=DEN-WO-0001", { timeout: 8000 });
   assert.match(await page.locator(".ticket").innerText(), /NO PAYMENT TAKEN/);
   await page.getByRole("button", { name: /VERIFY IN THIS BROWSER/i }).first().click();
-  await page.waitForSelector("text=VERIFIED · RECOMPUTED HERE", { timeout: 10_000 });
+  await page.waitForSelector("text=DIGEST MATCH · RECOMPUTED HERE", { timeout: 10_000 });
   await page.screenshot({ path: join(denRoot, "docs", "receipts", "den-01", "e2e-work-order-1440x900.png") });
 
   // ---- phone ----
@@ -185,7 +185,9 @@ test("complete desktop + phone journey, durable across a server restart", { time
   await phonePage.getByRole("link", { name: /PILE/i }).last().click();
   await phonePage.waitForURL("**/pile");
   await phonePage.waitForSelector(".scrap", { timeout: 10_000 });
-  assert.equal(await phonePage.locator(".scrap").count(), 91);
+  assert.equal(await phonePage.locator(".scrap").count(), 12);
+  await phonePage.getByRole("button", { name: /SHOW 12 MORE/i }).click();
+  assert.equal(await phonePage.locator(".scrap").count(), 24);
   await phonePage.screenshot({ path: join(denRoot, "docs", "receipts", "den-01", "e2e-pile-390x844.png") });
 
   // phone employ
