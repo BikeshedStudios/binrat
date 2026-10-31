@@ -1,0 +1,39 @@
+name: pons-tripwire-readiness-offline
+
+on:
+  pull_request:
+    branches: [experiment/binrat-event-to-case-recovery-01]
+    paths:
+      - 'scripts/verify-pons-tripwire-readiness.mjs'
+      - 'scripts/capture-binrat-readiness-public.mjs'
+      - 'test/ponsTripwirePublicCapture.test.mjs'
+      - 'test/ponsTripwireReadiness.test.mjs'
+      - 'docs/proofs/pons-tripwire/READINESS_01.md'
+      - '.github/workflows/pons-tripwire-readiness-offline.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  readiness:
+    if: github.head_ref == 'experiment/binrat-tripwire-readiness-01'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Zero-network readiness evidence evaluator tests
+        run: node --test test/ponsTripwireReadiness.test.mjs test/ponsTripwirePublicCapture.test.mjs
+      - name: Historical October 10 evidence MUST fail readiness gate
+        run: |
+          set +e
+          node scripts/verify-pons-tripwire-readiness.mjs \
+            --status1=docs/proofs/pons-tripwire/status-1.json \
+            --status2=docs/proofs/pons-tripwire/status-2.json \
+            --health=docs/proofs/pons-tripwire/health.json > "$RUNNER_TEMP/readiness.json"
+          code=$?
+          set -e
+          test "$code" -eq 2
+          node -e 'const r=require(process.argv[1]); if(r.assessment!=="BLOCKED" || r.productionActivationAuthorized) process.exit(1)' "$RUNNER_TEMP/readiness.json"
