@@ -96,6 +96,7 @@ try {
   const ROUTES = [
     ["home", "/"],
     ["pile", "/pile"],
+    ["canonical-case", "/canonical-case"],
     ["case", `/case/${leadId}`],
     ["tripwire-empty", "/tripwire"],
     ["front-desk", "/front-desk"],
@@ -177,6 +178,7 @@ try {
   for (const [name, path] of [
     ["home", "/"],
     ["pile", "/pile"],
+    ["canonical-case", "/canonical-case"],
     ["case", `/case/${leadId}`],
     ["tripwire", "/tripwire"],
     ["front-desk", "/front-desk"],

@@ -105,6 +105,13 @@ test("complete desktop + phone journey, durable across a server restart", { time
   assert.match(movement, /1,042/);
   await noOverflow(page, "desktop case");
 
+  // The canonical proof is source-backed, separate from replay, and accessible on desktop.
+  await page.goto(BASE + "/canonical-case", { waitUntil: "networkidle" });
+  await page.getByText("THE INDEX REMEMBERS AN OLDER LAUNCH.").waitFor();
+  assert.match(await page.locator("main").innerText(), /19 earlier launches/i);
+  await noOverflow(page, "desktop canonical case");
+  await page.goto(BASE + `/case/${leadId}`, { waitUntil: "networkidle" });
+
   // EMPLOY → wait for the run, verify the receipt locally
   await page.getByRole("button", { name: /EMPLOY THE RAT/i }).first().click();
   await page.waitForSelector("text=FILE WRITTEN", { timeout: 20_000 });
@@ -171,6 +178,7 @@ test("complete desktop + phone journey, durable across a server restart", { time
   for (const [label, path] of [
     ["home", "/"],
     ["pile", "/pile"],
+    ["canonical-case", "/canonical-case"],
     ["case", `/case/${leadId}`],
     ["tripwire", "/tripwire"],
     ["front-desk", "/front-desk"],
