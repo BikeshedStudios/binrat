@@ -121,3 +121,45 @@ test('unrepaired evidence remains explicit on later cycles, not a silent no-matc
     assert.equal(row.case_receipt_digest,null);
   }finally{db.close();}
 });
+
+test('Case source failure defers matching until earlier provenance is repaired',async()=>{
+  const db=await createPonsTripwireFixtureDatabase();
+  try {
+    const watch=await createPonsTripwireWatch(db,fixtureSource,owner);
+    await seedProductionRow(db,later);
+    await publishFixture(db,BigInt(later.block_number),later.block_hash,laterNow);
+    await db.prepare('DELETE FROM provenance_facts WHERE launch_id=?').bind(first.launch_id).run();
+    const before=await runPonsTripwireCycle(db,laterSource,{now:()=>laterNow});
+    assert.equal(before.enqueued,0);
+    assert.equal((await decisions(db))[0]!.reason,'CASE_SOURCE_UNAVAILABLE');
+    await new D1Store(db,4663).putProvenanceFact(await buildProvenanceFact(productionLaunch(first)));
+    const recovered=await runPonsTripwireCycle(db,laterSource,{now:()=>laterNow});
+    assert.equal(recovered.enqueued,1);
+    const row=(await decisions(db))[0]!;
+    assert.equal(row.state,'MATCH');
+    assert.equal(JSON.parse(row.case_receipt_json).watchGeneration,watch.generation);
+  }finally{db.close();}
+});
+test('bounded unresolved journal refuses cursor advance when capacity is exhausted',async()=>{
+  const db=await createPonsTripwireFixtureDatabase();
+  try {
+    const watch=await createPonsTripwireWatch(db,fixtureSource,owner);
+    await prepareMissing(db);
+    for(let i=0;i<20;i++) {
+      const id=i.toString(16).padStart(64,'0');
+      await db.prepare('INSERT INTO pons_tripwire_event_decisions (watch_generation,owner_id,launch_id,block_number,log_index,state,reason,first_seen_at_ms,last_evaluated_at_ms,attempts) VALUES (?,?,?,?,?,?,?,?,?,1)')
+        .bind(watch.generation,owner.ownerId,id,Number(first.block_number),i,'DEFERRED_UNKNOWN','SOURCE_UNVERIFIED',fixtureNow,fixtureNow).run();
+    }
+    await assert.rejects(runPonsTripwireCycle(db,laterSource,{now:()=>laterNow}));
+    const cursor=await db.prepare('SELECT cursor_launch_id FROM pons_tripwire_watches WHERE generation=?')
+      .bind(watch.generation).first<{cursor_launch_id:string}>();
+    assert.equal(cursor?.cursor_launch_id,'');
+    assert.equal((await decisions(db)).length,20);
+    await db.prepare('DELETE FROM pons_tripwire_event_decisions WHERE launch_id=?').bind('0'.repeat(64)).run();
+    const after=await runPonsTripwireCycle(db,laterSource,{now:()=>laterNow});
+    assert.equal(after.enqueued,0);
+    const row=await db.prepare('SELECT state FROM pons_tripwire_event_decisions WHERE launch_id=?')
+      .bind(later.launch_id).first<{state:string}>();
+    assert.equal(row?.state,'DEFERRED_UNKNOWN');
+  }finally{db.close();}
+});
