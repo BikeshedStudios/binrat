@@ -23,6 +23,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 2
       - uses: pnpm/action-setup@v4
         with:
           version: 10.15.0
@@ -34,4 +35,4 @@ jobs:
       - run: pnpm exec tsc --noEmit
       - run: pnpm exec tsx --test test/ponsTripwireRecovery.test.ts test/ponsTripwire.test.ts test/ponsTripwireWorker.test.ts
       - name: Source and migration whitespace integrity
-        run: git show --format= --check HEAD
+        run: git diff --check HEAD^ HEAD
