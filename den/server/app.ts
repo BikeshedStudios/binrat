@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { loadPinnedCanonicalCase } from "./canonicalCase.ts";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -210,6 +211,14 @@ export function createDenApp(options: {
         },
         store: "sqlite",
       });
+    }
+
+    if (path === "/api/canonical-case" && method === "GET") {
+      try {
+        return json(200, await loadPinnedCanonicalCase());
+      } catch {
+        return json(503, { error: { code: "CANONICAL_EVIDENCE_UNAVAILABLE", message: "Pinned historical source failed validation." } });
+      }
     }
 
     if (path === "/api/den" && method === "GET") {
