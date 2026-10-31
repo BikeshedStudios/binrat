@@ -1,7 +1,8 @@
 /** Pons owner pilot. Separate storage and policy; never enables Arc Watch. */
 import type { WatchSource } from '../autonomous/source.js';
 import { assertPrincipal } from '../autonomous/entitlements.js';
-import { canonicalJson } from '../evidence/canonical.js';
+import { canonicalJson, sha256Hex } from '../evidence/canonical.js';
+import { readPublicCaseEvidence } from './publicCaseEvidence.js';
 import { deriveEventId, deriveLaunchId, launchAuthorityJson } from '../core/identity.js';
 import type { LaunchObserved } from '../core/types.js';
 import { buildProvenanceFact, type ProvenanceFact } from '../intelligence/provenance.js';
@@ -14,7 +15,8 @@ import { readPublicSnapshot } from './publicSnapshot.js';
 import { D1RuntimeStateStore, verifiedRuntimeTarget } from './runtimeState.js';
 
 export const PONS_TRIPWIRE_LIMITS = Object.freeze({ watches:5, candidates:20, pending:5,
-  dailyNotifications:5, watchIntervalMs:600_000, freshnessMs:180_000, headAgeMs:60_000, workMs:30_000 });
+  dailyNotifications:5, watchIntervalMs:600_000, freshnessMs:180_000, headAgeMs:60_000, workMs:30_000,
+  deferredPerCycle:3, unresolvedLimit:20, decisionLimit:128 });
 const HASH=/^0x[0-9a-f]{64}$/;
 const ID=/^[0-9a-f]{64}$/;
 const ADDRESS=/^0x[0-9a-f]{40}$/;
@@ -196,6 +198,34 @@ export async function runPonsTripwireCycle(db:D1DatabaseLike,source:WatchSource,
         db.prepare("UPDATE pons_tripwire_outbox SET state='CANCELLED' WHERE watch_generation=? AND state='PENDING'").bind(watch.generation)]);
       continue;
     }
+    // Revisit older unresolved events before scanning forward. A source repair must not
+    // make the original event "new"; the same signed chain timestamp gate applies.
+    const backlog=await db.prepare(`SELECT launch_id,block_number,log_index FROM pons_tripwire_event_decisions
+      WHERE watch_generation=? AND owner_id=? AND state='DEFERRED_UNKNOWN'
+      ORDER BY block_number,log_index,launch_id LIMIT ?`)
+      .bind(watch.generation,watch.owner_id,PONS_TRIPWIRE_LIMITS.deferredPerCycle)
+      .all<{launch_id:string;block_number:number;log_index:number}>();
+    if(!backlog.success) throw new Error('PONS_TRIPWIRE_DEFERRED_READ_FAILED');
+    for(const unresolved of backlog.results??[]) {
+      if(examined>=PONS_TRIPWIRE_LIMITS.candidates||enqueued>=PONS_TRIPWIRE_LIMITS.pending||
+         deps.now()-start>PONS_TRIPWIRE_LIMITS.workMs) break;
+      examined++;
+      const candidate={launch_id:unresolved.launch_id,block_number:String(unresolved.block_number),log_index:unresolved.log_index};
+      const outcome=await assessCandidate(db,source,point,watch,candidate,tip,deps.now());
+      if(outcome.status==='DEFERRED_UNKNOWN') {
+        await retryDeferred(db,watch,candidate,outcome.reason,deps.now());
+        continue;
+      }
+      if(outcome.status==='NO_MATCH') {
+        await resolveDeferred(db,watch,candidate,'NO_MATCH',outcome.reason,null,deps.now());
+        continue;
+      }
+      const inserted=await insertMatchedOutbox(db,watch,outcome,tip,deps.now());
+      if(inserted==='FULL') continue;
+      if(inserted==='NEW') enqueued++;
+      await resolveDeferred(db,watch,candidate,'MATCH',inserted==='NEW'?'CASE_ADMITTED':'ALREADY_ADMITTED',
+        outcome.caseReceipt,deps.now());
+    }
     const candidates=await db.prepare(`SELECT launch_id,block_number,log_index FROM launches
       INDEXED BY idx_launches_chain_source_creator_block_numeric
       WHERE chain_id=4663 AND source='PONS_V2' AND creator=? AND CAST(block_number AS INTEGER)>=?
@@ -209,35 +239,26 @@ export async function runPonsTripwireCycle(db:D1DatabaseLike,source:WatchSource,
     for(const candidate of candidates.results??[]) {
       if(enqueued>=PONS_TRIPWIRE_LIMITS.pending||deps.now()-start>PONS_TRIPWIRE_LIMITS.workMs) break;
       examined++;
-      let evidence;
-      try {evidence=await validatePonsTripwireEvidence(db,candidate.launch_id,tip.block);}
-      catch {await advance(db,watch,candidate);continue;}
-      const {launch,fact,authorityJson,factJson}=evidence;
-      const event=await point(launch.blockNumber);
-      if(launch.creator!==watch.deployer||event.hash!==launch.blockHash||event.timestampMs<=watch.created_at_ms) {
-        await advance(db,watch,candidate);continue;
+      const outcome=await assessCandidate(db,source,point,watch,candidate,tip,deps.now());
+      if(outcome.status==='DEFERRED_UNKNOWN') {
+        // Durable decision and cursor move are one D1 transaction. A full journal
+        // fails the transaction: no silent skipping and no unbounded growth.
+        await decisionAndAdvance(db,watch,candidate,'DEFERRED_UNKNOWN',outcome.reason,null,deps.now());
+        continue;
       }
-      const result=await db.prepare(`INSERT OR IGNORE INTO pons_tripwire_outbox
-        (delivery_id,watch_generation,owner_id,chat_id,deployer,launch_id,event_id,block_number,block_hash,
-         evidence_digest,launch_authority_json,fact_payload_json,event_timestamp_ms,state,attempt_count,created_at_ms)
-        SELECT ?,?,?,?,?,?,?,?,?,?,?,?,?,'PENDING',0,?
-        WHERE EXISTS(SELECT 1 FROM pons_tripwire_watches WHERE generation=? AND state='ACTIVE')
-          AND (SELECT COUNT(*) FROM (SELECT 1 FROM pons_tripwire_outbox WHERE state='PENDING' LIMIT 5))<5`)
-        .bind(`pons:${watch.generation}:${launch.launchId}`,watch.generation,watch.owner_id,watch.chat_id,
-          watch.deployer,launch.launchId,launch.eventId,Number(launch.blockNumber),launch.blockHash,
-          fact.evidenceDigest,authorityJson,factJson,event.timestampMs,deps.now(),watch.generation).run();
-      if(!result.success) throw new Error('PONS_TRIPWIRE_OUTBOX_WRITE_FAILED');
-      // Full outbox defers the candidate; duplicate identities may advance safely.
-      if(result.meta?.changes===1) {enqueued++;await advance(db,watch,candidate);}
-      else {
-        const existing=await db.prepare('SELECT 1 AS present FROM pons_tripwire_outbox WHERE owner_id=? AND event_id=? LIMIT 1')
-          .bind(watch.owner_id,launch.eventId).first<{present:number}>();
-        if(existing) await advance(db,watch,candidate);else break;
+      if(outcome.status==='NO_MATCH') {
+        await decisionAndAdvance(db,watch,candidate,'NO_MATCH',outcome.reason,null,deps.now());
+        continue;
       }
+      const inserted=await insertMatchedOutbox(db,watch,outcome,tip,deps.now());
+      if(inserted==='FULL') break;
+      if(inserted==='NEW') enqueued++;
+      await decisionAndAdvance(db,watch,candidate,'MATCH',inserted==='NEW'?'CASE_ADMITTED':'ALREADY_ADMITTED',
+        outcome.caseReceipt,deps.now());
     }
   }
   if(!deps.deliver) return {examined,enqueued,sent};
-  const pending=await db.prepare("SELECT * FROM pons_tripwire_outbox WHERE state='PENDING' AND (? IS NULL OR (owner_id=? AND chat_id=?)) ORDER BY created_at_ms,delivery_id LIMIT 5")
+  const pending=await db.prepare("SELECT * FROM pons_tripwire_outbox o WHERE o.state='PENDING' AND (? IS NULL OR (o.owner_id=? AND o.chat_id=?)) AND EXISTS (SELECT 1 FROM pons_tripwire_event_decisions d WHERE d.watch_generation=o.watch_generation AND d.launch_id=o.launch_id AND d.owner_id=o.owner_id AND d.state='MATCH' AND d.case_receipt_digest IS NOT NULL) ORDER BY o.created_at_ms,o.delivery_id LIMIT 5")
     .bind(ownerId,ownerId,ownerChat)
     .all<PendingRow>();
   if(!pending.success) throw new Error('PONS_TRIPWIRE_OUTBOX_READ_FAILED');
@@ -301,6 +322,124 @@ export async function runPonsTripwireCycle(db:D1DatabaseLike,source:WatchSource,
   }
   return {examined,enqueued,sent};
 }
+type Candidate = {launch_id:string;block_number:string;log_index:number};
+type Watch = WatchRow;
+type CaseReceipt = {schemaVersion:'binrat.pons-tripwire-case-at-alert/1';watchGeneration:string;eventId:string;caseId:string;deployer:string;eventBlock:string;eventBlockHash:string;eventTimestampMs:number;publication:{checkpointBlock:string;checkpointBlockHash:string;feedDigest:string;publicationVersion:number;verifiedAtMs:number};canonicalCaseDigest:string;provenanceDigest:string;coverage:string};
+type Assessment =
+  | {status:'DEFERRED_UNKNOWN';reason:string}
+  | {status:'NO_MATCH';reason:string}
+  | {status:'MATCH';evidence:Awaited<ReturnType<typeof validatePonsTripwireEvidence>>;caseReceipt:CaseReceipt;caseReceiptDigest:string;eventTimestampMs:number};
+
+/** A digest binds the exact source-backed Case projection and publication admitted here;
+ * it is not a signature or independently authenticated chain attestation. */
+async function assessCandidate(
+  db:D1DatabaseLike,_source:WatchSource,point:(block:bigint)=>Promise<{hash:string;timestampMs:number}>,
+  watch:Watch,candidate:Candidate,tip:{block:bigint;hash:string},now:number
+):Promise<Assessment> {
+  let evidence:Awaited<ReturnType<typeof validatePonsTripwireEvidence>>;
+  try {evidence=await validatePonsTripwireEvidence(db,candidate.launch_id,tip.block);}
+  catch {return {status:'DEFERRED_UNKNOWN',reason:'EVIDENCE_UNVERIFIED'};}
+  const {launch,fact}=evidence;
+  if(launch.blockNumber.toString()!==candidate.block_number||launch.logIndex!==candidate.log_index) {
+    return {status:'DEFERRED_UNKNOWN',reason:'CANDIDATE_POSITION_CHANGED'};
+  }
+  let event:{hash:string;timestampMs:number};
+  try {event=await point(launch.blockNumber);}
+  catch {return {status:'DEFERRED_UNKNOWN',reason:'SOURCE_POINT_UNAVAILABLE'};}
+  if(event.hash!==launch.blockHash) return {status:'DEFERRED_UNKNOWN',reason:'BLOCK_HASH_CONFLICT'};
+  if(launch.creator!==watch.deployer) return {status:'NO_MATCH',reason:'OTHER_REPORTED_DEPLOYER'};
+  if(launch.blockNumber<=BigInt(watch.start_block)||event.timestampMs<=watch.created_at_ms) {
+    return {status:'NO_MATCH',reason:'PREDATES_WATCH'};
+  }
+  let envelope:Awaited<ReturnType<typeof readPublicCaseEvidence>>;
+  try {envelope=await readPublicCaseEvidence(db,launch.launchId);}
+  catch {return {status:'DEFERRED_UNKNOWN',reason:'CASE_SOURCE_UNAVAILABLE'};}
+  if(!envelope||envelope.material.caseId!==launch.launchId||
+      envelope.material.records[0]?.launch.launchId!==launch.launchId||
+      BigInt(envelope.material.publication.checkpointBlock)!==tip.block||
+      envelope.material.publication.checkpointBlockHash!==tip.hash) {
+    return {status:'DEFERRED_UNKNOWN',reason:'CASE_PUBLICATION_MISMATCH'};
+  }
+  const p=envelope.material.publication;
+  const caseReceipt:CaseReceipt={
+    schemaVersion:'binrat.pons-tripwire-case-at-alert/1',
+    watchGeneration:watch.generation,eventId:launch.eventId,caseId:launch.launchId,
+    deployer:launch.creator,eventBlock:launch.blockNumber.toString(),eventBlockHash:launch.blockHash,
+    eventTimestampMs:event.timestampMs,
+    publication:{checkpointBlock:p.checkpointBlock,checkpointBlockHash:p.checkpointBlockHash,
+      feedDigest:p.feedDigest,publicationVersion:p.publicationVersion,verifiedAtMs:p.verifiedAtMs},
+    canonicalCaseDigest:envelope.digest,provenanceDigest:fact.evidenceDigest,
+    coverage:envelope.material.coverage.countScope
+  };
+  return {status:'MATCH',evidence,caseReceipt,caseReceiptDigest:await sha256Hex(caseReceipt),eventTimestampMs:event.timestampMs};
+}
+
+async function insertMatchedOutbox(db:D1DatabaseLike,watch:Watch,outcome:Extract<Assessment,{status:'MATCH'}>,
+  _tip:{block:bigint;hash:string},now:number):Promise<'NEW'|'ALREADY'|'FULL'> {
+  const {launch,fact,authorityJson,factJson}=outcome.evidence;
+  const result=await db.prepare(`INSERT OR IGNORE INTO pons_tripwire_outbox
+    (delivery_id,watch_generation,owner_id,chat_id,deployer,launch_id,event_id,block_number,block_hash,
+     evidence_digest,launch_authority_json,fact_payload_json,event_timestamp_ms,state,attempt_count,created_at_ms)
+    SELECT ?,?,?,?,?,?,?,?,?,?,?,?,?,'PENDING',0,?
+    WHERE EXISTS(SELECT 1 FROM pons_tripwire_watches WHERE generation=? AND state='ACTIVE')
+      AND (SELECT COUNT(*) FROM (SELECT 1 FROM pons_tripwire_outbox WHERE state='PENDING' LIMIT 5))<5`)
+    .bind(`pons:${watch.generation}:${launch.launchId}`,watch.generation,watch.owner_id,watch.chat_id,
+      watch.deployer,launch.launchId,launch.eventId,Number(launch.blockNumber),launch.blockHash,
+      fact.evidenceDigest,authorityJson,factJson,outcome.eventTimestampMs,now,watch.generation).run();
+  if(!result.success) throw new Error('PONS_TRIPWIRE_OUTBOX_WRITE_FAILED');
+  if(result.meta?.changes===1) return 'NEW';
+  const existing=await db.prepare('SELECT 1 AS present FROM pons_tripwire_outbox WHERE owner_id=? AND event_id=? LIMIT 1')
+    .bind(watch.owner_id,launch.eventId).first<{present:number}>();
+  return existing?'ALREADY':'FULL';
+}
+
+async function decisionAndAdvance(db:D1DatabaseLike,watch:Watch,candidate:Candidate,
+  state:'DEFERRED_UNKNOWN'|'MATCH'|'NO_MATCH',reason:string,receipt:CaseReceipt|null,now:number) {
+  const receiptJson=receipt===null?null:canonicalJson(receipt);
+  const receiptDigest=receipt===null?null:await sha256Hex(receipt);
+  const results=await db.batch([
+    db.prepare(`INSERT INTO pons_tripwire_event_decisions
+      (watch_generation,owner_id,launch_id,block_number,log_index,state,reason,first_seen_at_ms,last_evaluated_at_ms,attempts,case_receipt_json,case_receipt_digest)
+      SELECT ?,?,?,?,?,?,?,?,?,1,?,?
+      WHERE (SELECT COUNT(*) FROM pons_tripwire_event_decisions)<128
+        AND (?!='DEFERRED_UNKNOWN' OR (SELECT COUNT(*) FROM pons_tripwire_event_decisions WHERE state='DEFERRED_UNKNOWN')<20)
+      ON CONFLICT(watch_generation,launch_id) DO UPDATE SET
+        state=CASE WHEN pons_tripwire_event_decisions.state IN ('MATCH','NO_MATCH') THEN pons_tripwire_event_decisions.state ELSE excluded.state END,
+        reason=CASE WHEN pons_tripwire_event_decisions.state IN ('MATCH','NO_MATCH') THEN pons_tripwire_event_decisions.reason ELSE excluded.reason END,
+        last_evaluated_at_ms=excluded.last_evaluated_at_ms,
+        attempts=MIN(2147483647,pons_tripwire_event_decisions.attempts+1),
+        case_receipt_json=CASE WHEN pons_tripwire_event_decisions.state IN ('MATCH','NO_MATCH') THEN pons_tripwire_event_decisions.case_receipt_json ELSE excluded.case_receipt_json END,
+        case_receipt_digest=CASE WHEN pons_tripwire_event_decisions.state IN ('MATCH','NO_MATCH') THEN pons_tripwire_event_decisions.case_receipt_digest ELSE excluded.case_receipt_digest END
+      WHERE pons_tripwire_event_decisions.owner_id=excluded.owner_id`)
+      .bind(watch.generation,watch.owner_id,candidate.launch_id,Number(candidate.block_number),candidate.log_index,
+        state,reason,now,now,receiptJson,receiptDigest,state),
+    guard(db),
+    db.prepare(`UPDATE pons_tripwire_watches SET cursor_block=?,cursor_log_index=?,cursor_launch_id=?
+      WHERE generation=? AND owner_id=? AND state='ACTIVE'`)
+      .bind(Number(candidate.block_number),candidate.log_index,candidate.launch_id,watch.generation,watch.owner_id),
+    guard(db)
+  ]);
+  if(results.some(item=>!item.success)) throw new Error('PONS_TRIPWIRE_DECISION_WRITE_FAILED');
+}
+async function retryDeferred(db:D1DatabaseLike,watch:Watch,candidate:Candidate,reason:string,now:number) {
+  const result=await db.prepare(`UPDATE pons_tripwire_event_decisions
+    SET reason=?,last_evaluated_at_ms=?,attempts=MIN(2147483647,attempts+1)
+    WHERE watch_generation=? AND owner_id=? AND launch_id=? AND state='DEFERRED_UNKNOWN'`)
+    .bind(reason,now,watch.generation,watch.owner_id,candidate.launch_id).run();
+  if(!result.success||result.meta?.changes!==1) throw new Error('PONS_TRIPWIRE_DEFERRED_UPDATE_FAILED');
+}
+async function resolveDeferred(db:D1DatabaseLike,watch:Watch,candidate:Candidate,
+  state:'MATCH'|'NO_MATCH',reason:string,receipt:CaseReceipt|null,now:number) {
+  const receiptJson=receipt===null?null:canonicalJson(receipt);
+  const receiptDigest=receipt===null?null:await sha256Hex(receipt);
+  const result=await db.prepare(`UPDATE pons_tripwire_event_decisions
+    SET state=?,reason=?,last_evaluated_at_ms=?,attempts=MIN(2147483647,attempts+1),
+        case_receipt_json=?,case_receipt_digest=?
+    WHERE watch_generation=? AND owner_id=? AND launch_id=? AND state='DEFERRED_UNKNOWN'`)
+    .bind(state,reason,now,receiptJson,receiptDigest,watch.generation,watch.owner_id,candidate.launch_id).run();
+  if(!result.success||result.meta?.changes!==1) throw new Error('PONS_TRIPWIRE_DEFERRED_RESOLUTION_FAILED');
+}
+
 function notificationFor(item:PendingRow):PonsTripwireNotification {
   const url=caseUrl(item.launch_id);
   return {chatId:item.chat_id,launchId:item.launch_id,deployer:item.deployer,evidenceDigest:item.evidence_digest,caseUrl:url,
