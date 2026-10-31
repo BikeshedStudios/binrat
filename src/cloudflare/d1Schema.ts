@@ -578,6 +578,7 @@ BEGIN
   UPDATE pons_tripwire_outbox SET state='CANCELLED'
   WHERE launch_id=OLD.launch_id AND state='PENDING';
 END;
+
 -- Isolated Event-to-Case Recovery Proof 01. Not approved for production D1.
 -- Keep undecided candidates recoverable before crossing the forward cursor.
 CREATE TABLE IF NOT EXISTS pons_tripwire_event_decisions (
