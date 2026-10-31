@@ -163,3 +163,27 @@ test('bounded unresolved journal refuses cursor advance when capacity is exhaust
     assert.equal(row?.state,'DEFERRED_UNKNOWN');
   }finally{db.close();}
 });
+
+test('first admitted Case receipt remains immutable across a newer publication and cursor replay',async()=>{
+  const db=await createPonsTripwireFixtureDatabase();
+  try {
+    const watch=await createPonsTripwireWatch(db,fixtureSource,owner);
+    await seedProductionRow(db,later);
+    await publishFixture(db,BigInt(later.block_number),later.block_hash,laterNow);
+    assert.equal((await runPonsTripwireCycle(db,laterSource,{now:()=>laterNow})).enqueued,1);
+    const prior=(await decisions(db))[0]!;
+    assert.equal(prior.state,'MATCH');
+    const original=JSON.parse(prior.case_receipt_json);
+    await publishFixture(db,BigInt(later.block_number),later.block_hash,laterNow+1);
+    await db.prepare('UPDATE pons_tripwire_watches SET cursor_block=?,cursor_log_index=-1,cursor_launch_id=? WHERE generation=?')
+      .bind(Number(first.block_number),'',watch.generation).run();
+    const replay=await runPonsTripwireCycle(db,laterSource,{now:()=>laterNow+1});
+    assert.equal(replay.enqueued,0);
+    const after=(await decisions(db))[0]!;
+    assert.equal(after.state,'MATCH');
+    assert.equal(after.case_receipt_digest,prior.case_receipt_digest);
+    assert.equal(after.case_receipt_json,prior.case_receipt_json);
+    assert.equal(JSON.parse(after.case_receipt_json).publication.publicationVersion,original.publication.publicationVersion);
+    assert.equal((await db.prepare('SELECT COUNT(*) AS count FROM pons_tripwire_outbox').first<{count:number}>())?.count,1);
+  }finally{db.close();}
+});
