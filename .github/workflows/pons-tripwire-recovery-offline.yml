@@ -34,4 +34,4 @@ jobs:
       - run: pnpm exec tsc --noEmit
       - run: pnpm exec tsx --test test/ponsTripwireRecovery.test.ts test/ponsTripwire.test.ts test/ponsTripwireWorker.test.ts
       - name: Source and migration whitespace integrity
-        run: git diff --check HEAD^ HEAD
+        run: git show --format= --check HEAD
