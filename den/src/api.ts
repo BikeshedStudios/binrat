@@ -73,6 +73,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
 
 export const api = {
   den: () => request<DenPayload>("/api/den"),
+  canonicalCase: () => request<import("./types").CanonicalCasePayload>("/api/canonical-case"),
   visit: () =>
     request<{
       firstVisit: boolean;

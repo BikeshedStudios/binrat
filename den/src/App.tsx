@@ -6,6 +6,7 @@ import type { DenPayload } from "./types";
 import { ErrorPanel, Kicker, Loading, RatWire } from "./ui/Bits";
 import { Footer, Hud, TopBar } from "./ui/Chrome";
 import { CaseFile } from "./pages/CaseFile";
+import { CanonicalCase } from "./pages/CanonicalCase";
 import { Den } from "./pages/Den";
 import { FrontDesk } from "./pages/FrontDesk";
 import { Manual } from "./pages/Manual";
@@ -100,6 +101,8 @@ export default function App() {
     );
   } else if (path === "/pile") {
     page = <Pile />;
+  } else if (path === "/canonical-case") {
+    page = <CanonicalCase />;
   } else if (path.startsWith("/case/")) {
     const id = decodeURIComponent(path.slice("/case/".length)).replace(/\/+$/, "");
     page = id ? <CaseFile id={id} /> : <NotFound />;

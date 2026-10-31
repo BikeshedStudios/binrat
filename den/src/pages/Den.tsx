@@ -118,6 +118,16 @@ export function Den({ den, visit }: { den: DenPayload; visit: VisitInfo }) {
         </div>
       </section>
 
+      <section className="panel panel--pad" style={{ marginBottom: 18 }} aria-label="Historical canonical Case">
+        <Kicker tone="quiet">SEPARATE EVIDENCE · OCTOBER 2026 PRODUCTION CAPTURE</Kicker>
+        <div className="row" style={{ justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+          <div>
+            <h2 className="h3" style={{ margin: "8px 0", color: "var(--bone)" }}>ONE CANONICAL CASE. NOT ANOTHER REPLAY.</h2>
+            <p style={{ color: "var(--bone-3)", margin: 0 }}>An older source-backed Case with 19 earlier indexed launches and a fixed historical receipt.</p>
+          </div>
+          <Link to="/canonical-case" className="btn btn--ghost">OPEN THE OLD FILE →</Link>
+        </div>
+      </section>
       <div className="tape" aria-label="Provenance summary">
         <strong>CHAIN {evidence.chainId}</strong>
         <span className="tape-sep">/</span>

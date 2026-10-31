@@ -106,3 +106,9 @@ den/
 
 Nothing outside `den/` is written by this experiment. No merge, deploy, token, signing, collector or
 spend is part of it.
+
+## One historical canonical Case (isolated proof)
+
+Visit `/canonical-case` to inspect the pinned 2026-10-09 production-captured Case. The Den server imports the existing `src/public/caseEvidence.ts` validator. It checks exact Case identity, canonical authority/provenance, fixed publication and material digest, then returns a bounded view. A failure is 503 (no fallback). No runtime network calls, no simulated source and no changes to the six recorded replay captures.
+
+This Case is not watchable, not a live query, and not a claim of complete history. See `den/CANONICAL_CASE_012.md`.

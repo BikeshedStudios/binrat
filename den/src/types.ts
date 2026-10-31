@@ -306,3 +306,30 @@ export type WorkOrderResponse = {
   boundary: string;
   deliverable: string;
 };
+
+
+export type CanonicalCasePayload = {
+  mode: "PINNED_HISTORICAL_CAPTURE";
+  liveData: false;
+  watchAvailable: false;
+  replayAvailable: false;
+  caseId: string;
+  chainId: 4663;
+  source: "PONS_V2";
+  launchBlock: string;
+  token: string;
+  txHash: string;
+  reportedDeployer: string;
+  sourceFactId: string;
+  priorIndexedCount: number;
+  previous: Array<{ id: string; block: string; sourceFactId: string }>;
+  coverage: { mode: string; history: "PARTIAL"; resultLimit: number; countScope: string; olderHistory: string };
+  reconstruction: "PUBLISHED_CHECKPOINT_RECONSTRUCTION";
+  archivedPublication: false;
+  pointInTimeReplay: false;
+  checkpoint: { chainId: 4663; checkpointBlock: string; checkpointBlockHash: string; feedDigest: string; publicationVersion: number; verifiedAtMs: number };
+  digest: string;
+  verification: "CANONICAL_VALIDATOR_AND_FIXED_CAPTURE_PIN";
+  evidenceFile: string;
+  caveat: string;
+};
