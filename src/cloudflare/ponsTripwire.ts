@@ -340,6 +340,9 @@ async function assessCandidate(
   try {evidence=await validatePonsTripwireEvidence(db,candidate.launch_id,tip.block);}
   catch {return {status:'DEFERRED_UNKNOWN',reason:'EVIDENCE_UNVERIFIED'};}
   const {launch,fact}=evidence;
+  if(launch.blockNumber.toString()!==candidate.block_number||launch.logIndex!==candidate.log_index) {
+    return {status:'DEFERRED_UNKNOWN',reason:'CANDIDATE_POSITION_CHANGED'};
+  }
   let event:{hash:string;timestampMs:number};
   try {event=await point(launch.blockNumber);}
   catch {return {status:'DEFERRED_UNKNOWN',reason:'SOURCE_POINT_UNAVAILABLE'};}
@@ -401,9 +404,12 @@ async function decisionAndAdvance(db:D1DatabaseLike,watch:Watch,candidate:Candid
       WHERE (SELECT COUNT(*) FROM pons_tripwire_event_decisions)<128
         AND (?!='DEFERRED_UNKNOWN' OR (SELECT COUNT(*) FROM pons_tripwire_event_decisions WHERE state='DEFERRED_UNKNOWN')<20)
       ON CONFLICT(watch_generation,launch_id) DO UPDATE SET
-        state=excluded.state,reason=excluded.reason,last_evaluated_at_ms=excluded.last_evaluated_at_ms,
+        state=excluded.state,
+        reason=CASE WHEN pons_tripwire_event_decisions.state='MATCH' THEN pons_tripwire_event_decisions.reason ELSE excluded.reason END,
+        last_evaluated_at_ms=excluded.last_evaluated_at_ms,
         attempts=MIN(2147483647,pons_tripwire_event_decisions.attempts+1),
-        case_receipt_json=excluded.case_receipt_json,case_receipt_digest=excluded.case_receipt_digest
+        case_receipt_json=CASE WHEN pons_tripwire_event_decisions.state='MATCH' THEN pons_tripwire_event_decisions.case_receipt_json ELSE excluded.case_receipt_json END,
+        case_receipt_digest=CASE WHEN pons_tripwire_event_decisions.state='MATCH' THEN pons_tripwire_event_decisions.case_receipt_digest ELSE excluded.case_receipt_digest END
       WHERE pons_tripwire_event_decisions.owner_id=excluded.owner_id`)
       .bind(watch.generation,watch.owner_id,candidate.launch_id,Number(candidate.block_number),candidate.log_index,
         state,reason,now,now,receiptJson,receiptDigest,state),
