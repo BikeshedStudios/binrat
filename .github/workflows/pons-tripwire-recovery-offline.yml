@@ -1,0 +1,37 @@
+name: pons-tripwire-recovery-offline
+
+on:
+  pull_request:
+    branches: [feat/pons-tripwire-v1]
+    paths:
+      - 'src/cloudflare/ponsTripwire.ts'
+      - 'src/cloudflare/d1Schema.ts'
+      - 'cloudflare/schema.sql'
+      - 'cloudflare/migrations/20261031_pons_tripwire_recovery_proof.sql'
+      - 'test/ponsTripwireRecovery.test.ts'
+      - '.github/workflows/pons-tripwire-recovery-offline.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  recovery:
+    if: github.head_ref == 'experiment/binrat-event-to-case-recovery-01'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/build-public-release.mjs
+      - run: pnpm exec tsc --noEmit
+      - run: pnpm exec tsx --test test/ponsTripwireRecovery.test.ts test/ponsTripwire.test.ts test/ponsTripwireWorker.test.ts
+      - name: Source and migration whitespace integrity
+        run: git diff --check HEAD^ HEAD
