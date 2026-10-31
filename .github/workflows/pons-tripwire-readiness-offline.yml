@@ -5,6 +5,8 @@ on:
     branches: [experiment/binrat-event-to-case-recovery-01]
     paths:
       - 'scripts/verify-pons-tripwire-readiness.mjs'
+      - 'scripts/capture-binrat-readiness-public.mjs'
+      - 'test/ponsTripwirePublicCapture.test.mjs'
       - 'test/ponsTripwireReadiness.test.mjs'
       - 'docs/proofs/pons-tripwire/READINESS_01.md'
       - '.github/workflows/pons-tripwire-readiness-offline.yml'
@@ -23,7 +25,7 @@ jobs:
         with:
           node-version: 22
       - name: Zero-network readiness evidence evaluator tests
-        run: node --test test/ponsTripwireReadiness.test.mjs
+        run: node --test test/ponsTripwireReadiness.test.mjs test/ponsTripwirePublicCapture.test.mjs
       - name: Historical October 10 evidence MUST fail readiness gate
         run: |
           set +e

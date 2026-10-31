@@ -29,3 +29,17 @@ An `assessment:PREFLIGHT_EVIDENCE_COMPLETE` is a **reviewable evidence packet**,
 One independent, fresh provider-backed status/identity capture with safe source-cost ceiling, the exact recovery schema read-only confirmation, a prospective head timestamp/continuity test, a defined single-owner test duration and zero-output replay mode. **No change to production Worker, D1, RPC or Telegram is authorized here.**
 
 The current result is **BLOCKED** on lack of fresh evidence. Historic green CI, historical FRESH_VERIFIED, and successful simulated tests never substitute for a prospective live event.
+
+## Operator-only bounded public capture (optional, NOT run by CI)
+
+After independently verifying the actual production Worker hostname and that up to **3 public GETs** are acceptable, run manually:
+
+`node scripts/capture-binrat-readiness-public.mjs --origin=https://<verified-host>/ --out=/tmp/binrat-tripwire-20261031`
+
+This calls exactly **GET /api/status**, **GET /health**, **GET /api/status** on the explicit HTTPS origin, with no authentication, RPC, D1 admin, Telegram, POST or mutation. Requests have a 7-second timeout, no redirects and 64 KiB bounded JSON response parsing. Files are created with no overwrite. The public endpoint may still count against free-tier request quotas; no zero-charge guarantee is claimed. If unavailable, stop and report the error; do not try random hosts or paid provider fallbacks.
+
+Then evaluate (without network):
+
+`node scripts/verify-pons-tripwire-readiness.mjs --status1=/tmp/binrat-tripwire-20261031/status1.json --status2=/tmp/binrat-tripwire-20261031/status2.json --health=/tmp/binrat-tripwire-20261031/health.json`
+
+No provider/migration attestation means a fully fresh source will **still correctly return BLOCKED**. The host is input by the operator and cannot authenticate its own provider deployment identity.
